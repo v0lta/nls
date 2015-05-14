@@ -7,7 +7,7 @@ f  = 1;
 k = 1;
 p = 2;
 
-n = 0:0.01:5;
+n = 0:0.1:5;
 
 %Determine the values of the original equation for different n
 for i = 1:length(n)
@@ -39,21 +39,16 @@ for i = 1:length(p)
  funDn = @(n) G*n*(p(i)/(G*n+f)) - k*n;
  zero(i) = fzero(funDn,pc);
  for j = 1:length(n)
-    dn(i,j) = funDn(n(j));
+    dn(i,j) = funDn(n;
  end
 end
 
-subplot(1,2,1)
 plot(p,real(zero),'*');
 xlabel('p')
 ylabel('zero')
 
-subplot(1,2,2)
-plot(n,dn)
-hold on;
-plot(zero,0,'r*')
-xlabel('n')
-ylabel('dot n')
+
+figure
 
 
 %Its a transcritical bifurcation.

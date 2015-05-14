@@ -1,16 +1,45 @@
-\documentclass{article}
-\usepackage{graphicx}
+
+\input{./src/preamble.tex}
 
 \begin{document}
 
-\title{Exercise 6 Pattern formation}
+\title{Exercise 1 Laser Model}
 \author{Moritz Wolter}
 
 \maketitle
 
+\section{The equations}
+\begin{eqnarray}
+\dot{n} = GnN - kn. \\
+\dot{N} = -GnN - fN + p.
+\end{eqnarray}
 
-\section{Question 1:}
 
+\section{First Order Analysis}
+Assume that the number of excited atoms remains quasi-static. 
+\begin{eqnarray}
+\dot{N} \approx 0. \\
+\Rightarrow \dot{n} = Gn \cdot \frac{p}{Gn + f} - kn. \label{eq:oneParam}\\
+\end{eqnarray}
+\subsection{Linear Stability analysis}
+In the two dimensional case fixed points are at the intersections of the first derivative with the real axis. Thus the can be found by solving $\dot{n}=0$. Leading to the problem:
+\begin{equation}
+0 = n ( \frac{Gp}{Gn+f} - k)
+\end{equation}
+Which has the zeros $0$ and $\frac{p}{k} - \frac{f}{G}$. To learn more about the nature of the fixed points one has to set the derivative of \ref{eq:oneParam} to zero. Using the Quotient rule the expression: 
+\begin{equation}
+\ddot{n} = \frac{Gfp}{(Gn+f)^2} - k   
+\label{eq:secondDiv} 
+\end{equation}
+is obtained. A fixed point is stable if the second derivative is negative. Likewise it is unstable if the second derivative is positive \footnote{Strogatz, p.25}.
+Evaluating the second derivative for the fixed point a zero leads to $\ddot{n}(0) = \frac{Gp}{f} - k$ which leads to a values of $p_c = \frac{fk}{G}$. Thus the fixed points becomes unstable if $p > p_c$.
+%TODO: TIMESCALE p 66.
 
+\begin{figure}
+\input{./plots/bifurcation.tex}
+\caption{Plot of the position of the right zero and the parameter p (left). Plot of $\dot{n}$ for different p values with the zeros marked with red stars. $G=f=k=1$ is assumed, leading to $p_c = 1$.}
+\label{fig:transBif}
+\end{figure}
+Figure~\ref{fig:transBif} indicates a trans-critical bifurcation.
 
 \end{document}
