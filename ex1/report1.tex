@@ -46,8 +46,30 @@ Figure~\ref{fig:transBif} indicates a trans-critical bifurcation.
 \begin{figure}
 \input{./plots/pplaneLaserOrig.tex}
 \input{./plots/pplaneLaserOrigP2.tex}
-\caption{Phase plane of the original system. With two different states predicted from the linear analysis. A plot of the system for uncritical p is given in the top plot. The bottom plot shows the result for a critical $p > p_c$. }
+\caption{Phase plane of the original system. With two different states predicted from the linear analysis. A plot of the system for uncritical p is given in the top plot. The bottom plot shows the result for a critical $p > p_c$.}
 \end{figure}
 \subsection{Nondimensionalization}
+To reduce the amount of parameters and simplify the analysis the dimensions are non-dimensionalized. In a first step scaling parameters are introduced:
+\begin{eqnarray}
+\tau = \frac{t}{\gamma} \;\; x = \frac{n}{\alpha} \;\; y = \frac{N}{\beta}. \\
+\Rightarrow t = n\tau \;\;  n = x\alpha \;\; N = y\beta \;\;  
+\end{eqnarray}
+Using the chain rule for the derivatives leads to $\dot{n} = \frac{dn}{dt} = \frac{dn}{d\tau} \cdot \frac{d\tau}{dn} = \frac{dn}{d\tau} \cdot \frac{1}{\gamma} = \frac{dx}{d\tau} \cdot  \frac{\alpha}{\gamma} = \hat{x} \frac{\alpha}{\gamma}$. 
+Following a similar derivation for $\hat{y}$ and substituting leads to:
+\begin{eqnarray}
+\hat{x} = Gxy\beta \gamma - kx\gamma \\
+\hat{y} = -Gx\alpha y \gamma - fy \gamma + p\frac{\gamma}{\beta}.
+\end{eqnarray}
+Now the equations may be simplified by setting groups of coefficients to one. Starting with $p\frac{\gamma}{\beta} = 1$ to ensure non-dimensionality. For the other terms it is beneficial to have the coefficients in front of the cross terms $xy$ since these will end up on the diagonal of the Jacobi matrix. Thus $k\gamma = 1$ and 
+
+
+\begin{figure}
+\input{./plots/pplaneLaserNonDimP1.tex}
+\input{./plots/pplaneLaserNonDimHalf.tex}
+%\input{./plots/pplaneLaserNonDimPCmplx.tex}
+\caption{Phase plane of the nonDimensional system.}
+\end{figure}
+
+
 
 \end{document}
