@@ -9,18 +9,18 @@
 \maketitle
 
 \section{The equations}
-\begin{eqnarray}
-\dot{n} = GnN - kn. \\
-\dot{N} = -GnN - fN + p.
-\end{eqnarray}
+\begin{align}
+\dot{n} &= GnN - kn. \\
+\dot{N} &= -GnN - fN + p.
+\end{align}
 
 
 \section{First Order Analysis}
 Assume that the number of excited atoms remains quasi-static. 
-\begin{eqnarray}
-\dot{N} \approx 0. \\
-\Rightarrow \dot{n} = Gn \cdot \frac{p}{Gn + f} - kn. \label{eq:oneParam}\\
-\end{eqnarray}
+\begin{align}
+\dot{N} &\approx 0. \\
+\Rightarrow \dot{n} &= Gn \cdot \frac{p}{Gn + f} - kn. \label{eq:oneParam}\\
+\end{align}
 \subsection{Linear Stability analysis}
 In the two dimensional case fixed points are at the intersections of the first derivative with the real axis. Thus the can be found by solving $\dot{n}=0$. Leading to the problem:
 \begin{equation}
@@ -45,30 +45,101 @@ Figure~\ref{fig:transBif} indicates a trans-critical bifurcation.
 \section{Two dimensional analysis}
 \begin{figure}
 \input{./plots/pplaneLaserOrig.tex}
-\input{./plots/pplaneLaserOrigP2.tex}
-\caption{Phase plane of the original system. With two different states predicted from the linear analysis. A plot of the system for uncritical p is given in the top plot. The bottom plot shows the result for a critical $p > p_c$.}
+%\input{./plots/pplaneLaserOrigP2.tex}
+\caption{Phase plane of the original system, which an uncritical choice for the parameters $p < p_c$.}
 \end{figure}
 \subsection{Nondimensionalization}
 To reduce the amount of parameters and simplify the analysis the dimensions are non-dimensionalized. In a first step scaling parameters are introduced:
-\begin{eqnarray}
-\tau = \frac{t}{\gamma} \;\; x = \frac{n}{\alpha} \;\; y = \frac{N}{\beta}. \\
-\Rightarrow t = n\tau \;\;  n = x\alpha \;\; N = y\beta \;\;  
-\end{eqnarray}
+\begin{align}
+\tau &= \frac{t}{\gamma} \;\; x = \frac{n}{\alpha} \;\; y = \frac{N}{\beta}. \\
+\Rightarrow t &= n\tau \;\;  n = x\alpha \;\; N = y\beta \;\;  
+\end{align}
 Using the chain rule for the derivatives leads to $\dot{n} = \frac{dn}{dt} = \frac{dn}{d\tau} \cdot \frac{d\tau}{dn} = \frac{dn}{d\tau} \cdot \frac{1}{\gamma} = \frac{dx}{d\tau} \cdot  \frac{\alpha}{\gamma} = \hat{x} \frac{\alpha}{\gamma}$. 
 Following a similar derivation for $\hat{y}$ and substituting leads to:
-\begin{eqnarray}
-\hat{x} = Gxy\beta \gamma - kx\gamma \\
-\hat{y} = -Gx\alpha y \gamma - fy \gamma + p\frac{\gamma}{\beta}.
-\end{eqnarray}
-Now the equations may be simplified by setting groups of coefficients to one. Starting with $p\frac{\gamma}{\beta} = 1$ to ensure non-dimensionality. For the other terms it is beneficial to have the coefficients in front of the cross terms $xy$ since these will end up on the diagonal of the Jacobi matrix. Thus $k\gamma = 1$ and 
+\begin{align}
+\hat{x} &= Gxy\beta \gamma - kx\gamma \label{eq:DimOne} \\ 
+\hat{y} &= -Gx\alpha y \gamma - fy \gamma + \frac{p\gamma}{\beta} \label{eq:DimTwo}.
+\end{align}
+Now the equations may be simplified by setting groups of coefficients to one. This choice determines the position of the constants. Several options exist: 
+\subsection{The na\"{i}ve approach}
+Ensuring the non-dimensionality of the system the last group in equation~\ref{eq:DimTwo} is set to one. Next the last group in~\ref{eq:DimOne} is set to one. Now the remaining options are only the first terms of the two equations. Somewhat arbitrarily the first group of the second equation is set to one. This leads to:
+\begin{align}
+\frac{p\gamma}{\beta} &= 1 \\
+k\gamma &= 1 \\
+G\alpha\gamma &= 1.
+\end{align}
+Solving for the scaling parameters and substituting the remaining system parameters with $c_1$ and $c_2$ leads to:
+\begin{align}
+\hat{x} &= c_1 xy - x. \\
+\hat{y} &= -xy -c_2 y + 1.
+\end{align}
+Now the fixed points can be determined by solving for the zero vector $\ \begin{pmatrix} 0 & 0 \end{pmatrix}^T$:
+\begin{align}
+\mathbf{x}^{*}_1 &= \begin{pmatrix} 0 \\ \frac{1}{c_2} \end{pmatrix} \\
+\mathbf{x}^{*}_2 &= \begin{pmatrix} -c_2 + c_1 \\ \frac{1}{c_1} \end{pmatrix} .
+\end{align}
+Above $c_1 = \frac{Gp}{k^2}$ and $c_2 = \frac{f}{k}$.
+To learn more about the nature of these points the Jacobi-matrix is computed, which is done by computing the partial derivative with respect to $x$ in the first and to $y$ in the second column. 
+\begin{equation}
+J =
+\begin{pmatrix}
+yc_1 - 1 & xc_1 \\
+-y 		 &	-x - c_2 . 
+\end{pmatrix}
+\label{eq:Jacobi}
+\end{equation}
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+$\mathbf{x}_1^* = \begin{pmatrix} 0 \\ \frac{1}{c_2} \end{pmatrix}$
+& $\tau_1 = \frac{c_1}{c_2} - c_2 - 1$ & $\triangle_1 = c_2 - c_1$ \\
+$\mathbf{x}_2^* = \begin{pmatrix} -c_2 + c_1 \\ \frac{1}{c_1} \end{pmatrix}$
+& $\tau_2 = -c_1$ 						& $\triangle_2 = c_1 - c_2$ \\
+\hline
+\end{tabular}
+\caption{Fixed points, Jacobi trance and determinant as found by using the na\"{i}ve approach.}
+\label{tab:naive}
+\end{table}
+This matrix my now be evaluated at the fixed points, so $J(\mathbf{x}^*_1)$ and $J(\mathbf{x}^*_2)$. Are computed, from here the nature of the fixed points can be classified by looking at the trace $\tau$ and the determinant $\triangle$. The results may be found in table~\ref{tab:naive}.
+%TODO:: INTERPRETATION.
+
+\subsection{The smart approach}
+In an attempt to simplify the expressions obtained above a second way to setting the scaling parameters will be considered. From the Jacobi matrix given in equation~\ref{eq:Jacobi} it follows that the factors before the $xy$ terms show up twice in the matrix. Coefficients that scale a single $x$ or $y$ terms appear once. While the constant disappears fully. However to keep the equations dimensionless the constant term has to remain one. Thus the remaining two groups before the high-frequent $xy$ terms will be set to one. Starting from equations~\ref{eq:DimOne} and \ref{eq:DimTwo}, a similar process as the one outlined above is followed, which leads to the system:
+\begin{align}
+\hat{x} &= xy - c_1 x \\
+\hat{y} &= -xy - c_2 y + 1
+\end{align}  
+With the two constants $c_1 = \sqrt{\frac{k^2}{Gp}}$ and $c_2 = \sqrt{\frac{f^2}{Gp}}$. And the fixed points turn out to be $x_1^* = \begin{pmatrix} 0 & \frac{1}{c_2} \end{pmatrix}^T$ and $x_2^* = \begin{pmatrix} \frac{1- c_1c_2 }{c_1} & c_1 \end{pmatrix}^T$.
+This new system leads indeed to a simpler Jacobi matrix, which is given by:
+\begin{equation}
+J = \begin{pmatrix}
+y - c_1 & x \\
+-y & -x - c_2 \\
+\end{pmatrix}
+\end{equation}
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+$x_1^* = \begin{pmatrix} 0 \\ \frac{1}{c_2} \end{pmatrix}$ 
+& $\tau_1 = \frac{1}{c_2} - c_1 - c_2$  & $\triangle_1 = c_1 c_2 - 1$ \\
+$x_2^* = \begin{pmatrix} \frac{1- c_1c_2 }{c_1} \\ c_1 \end{pmatrix}$ 
+& $\tau_2 = c_1 c_2 - \frac{1}{c_1}$  & $\triangle_2 = - c_1 c_2 + 1$ \\
+\hline
+\end{tabular}
+\caption{Results obtained by using the smart method.}
+\label{tab:smart}
+\end{table}
+Again the Jacobi matrix is evaluated at the fixed points, results are given in table~\ref{tab:smart}. Unfortunately, the obtained expressions are not simpler then those computed earlier. However the add another angle to the analysis of the results. 
 
 
-\begin{figure}
-\input{./plots/pplaneLaserNonDimP1.tex}
-\input{./plots/pplaneLaserNonDimHalf.tex}
+%\begin{figure}
+%\input{./plots/pplaneLaserNonDimP1.tex}
+%\input{./plots/pplaneLaserNonDimHalf.tex}
 %\input{./plots/pplaneLaserNonDimPCmplx.tex}
-\caption{Phase plane of the nonDimensional system.}
-\end{figure}
+%\caption{Phase plane of the nonDimensional system.}
+%\end{figure}
 
 
 
