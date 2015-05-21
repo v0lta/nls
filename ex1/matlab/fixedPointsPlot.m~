@@ -1,0 +1,45 @@
+
+
+G = 1;
+k = 1;
+f = 1;
+
+
+p = -1:0.5:3;
+
+
+for i=1:1:length(p)
+    
+    
+    if (p(i) < (f*k/G))
+        x1 = [ 0; p(i)/f];
+        x2 = [ -f/G + p(i)/k ; k/G];
+        plot(real(x1(1)),real(x1(2)),'b^');
+        hold on;
+        plot(real(x1(1)),real(x1(2)),'bs');
+        plot(real(x2(1)),real(x2(2)),'r*');
+    end 
+    
+    
+    if (p(i) == (f*k/G))
+        x1 = [ 0; p(i)/f];
+        x2 = [ -f/G + p(i)/k ; k/G];
+        plot(real(x1(1)),real(x1(2)),'k^');
+        hold on;
+        plot(real(x2(1)),real(x2(2)),'k*');
+        plot(real(x2(1)),real(x2(2)),'ks');
+    end 
+    
+    if (p(i) > (f*k/G))
+        x1 = [ 0; p(i)/f];
+        x2 = [ -f/G + p(i)/k ; k/G];
+        plot(real(x1(1)),real(x1(2)),'r^');
+        hold on;
+        plot(real(x2(1)),real(x2(2)),'b*');
+        plot(real(x2(1)),real(x2(2)),'b*');
+    end 
+    
+end
+grid on;
+
+

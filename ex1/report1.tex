@@ -45,8 +45,10 @@ Figure~\ref{fig:transBif} indicates a trans-critical bifurcation.
 \section{Two dimensional analysis}
 \begin{figure}
 \input{./plots/pplaneLaserOrig.tex}
-%\input{./plots/pplaneLaserOrigP2.tex}
-\caption{Phase plane of the original system, which an uncritical choice for the parameters $p < p_c$.}
+\caption{Phase plane of the original system $n ' = G n N - k n \;\;\; N ' = - G n N - f N + p$, which an uncritical choice for the parameters $p < p_c$. ($f=k=G=p=1$)}
+\input{./plots/pplaneLaserOrigP2.tex}
+\caption{Phase plane of the original system $n ' = G n N - k n \;\;\; N ' = - G n N - f N + p$, with $p < p_c$.($f=k=G=1\;\;p=2$)}
+
 \end{figure}
 \subsection{Nondimensionalization}
 To reduce the amount of parameters and simplify the analysis the dimensions are non-dimensionalized. In a first step scaling parameters are introduced:
@@ -102,7 +104,6 @@ $\mathbf{x}_2^* = \begin{pmatrix} -c_2 + c_1 \\ \frac{1}{c_1} \end{pmatrix}$
 \label{tab:naive}
 \end{table}
 This matrix my now be evaluated at the fixed points, so $J(\mathbf{x}^*_1)$ and $J(\mathbf{x}^*_2)$. Are computed, from here the nature of the fixed points can be classified by looking at the trace $\tau$ and the determinant $\triangle$. The results may be found in table~\ref{tab:naive}.
-%TODO:: INTERPRETATION.
 
 \subsection{The smart approach}
 In an attempt to simplify the expressions obtained above a second way to setting the scaling parameters will be considered. From the Jacobi matrix given in equation~\ref{eq:Jacobi} it follows that the factors before the $xy$ terms show up twice in the matrix. Coefficients that scale a single $x$ or $y$ terms appear once. While the constant disappears fully. However to keep the equations dimensionless the constant term has to remain one. Thus the remaining two groups before the high-frequent $xy$ terms will be set to one. Starting from equations~\ref{eq:DimOne} and \ref{eq:DimTwo}, a similar process as the one outlined above is followed, which leads to the system:
@@ -125,7 +126,7 @@ y - c_1 & x \\
 $x_1^* = \begin{pmatrix} 0 \\ \frac{1}{c_2} \end{pmatrix}$ 
 & $\tau_1 = \frac{1}{c_2} - c_1 - c_2$  & $\triangle_1 = c_1 c_2 - 1$ \\
 $x_2^* = \begin{pmatrix} \frac{1- c_1c_2 }{c_1} \\ c_1 \end{pmatrix}$ 
-& $\tau_2 = c_1 c_2 - \frac{1}{c_1}$  & $\triangle_2 = - c_1 c_2 + 1$ \\
+& $\tau_2 = -\frac{1}{c_1}$  & $\triangle_2 = - c_1 c_2 + 1$ \\
 \hline
 \end{tabular}
 \caption{Results obtained by using the smart method.}
@@ -160,18 +161,40 @@ The fixed points will appear at:
 after the rescaling process. The new position depends on the scaling parameters $\alpha$ and $\beta$.
 
 
-
-
-
- 
-
-%\begin{figure}
-%\input{./plots/pplaneLaserNonDimP1.tex}
-%\input{./plots/pplaneLaserNonDimHalf.tex}
-%\input{./plots/pplaneLaserNonDimPCmplx.tex}
-%\caption{Phase plane of the nonDimensional system.}
-%\end{figure}
-
+\subsubsection{Bifurcations}
+Since the results from the smart approach do not turn out to be simpler then those found with the first one. The formulations from table~\ref{tab:naive} will be used during the subsequent analysis. Starting from the condition for $p_c$:
+\begin{align}
+p &= p_c \\
+p &= \frac{fk}{G} \\
+Gp &= fk \\
+\frac{Gp}{k} &= f \\
+\frac{Gp}{k^2} &= \frac{f}{k} \\
+\Leftrightarrow c_1 &= c_2 .
+\end{align}
+Using the same procedure for $p > p_c$ yields $c_1 > c_2$ and $p < p_c$ leads to $c_1 < c_2$. Armed with these new inequalities it is now possible to proceed with evaluate the expressions given in table~\ref{tab:naive}. Results are shown in ~\ref{tab:analysis}.
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+condition   & trace		   & determinant 		& fixed point classification \\
+\hline
+$p = p_c  $ & $\tau_1 < 0$ & $\triangle_1 = 0 $ & $\mathbf{x}_1^*$ non-isolated stable fixed point \\
+$c_1 = c_2$ & $\tau_2 < 0$ & $\triangle_2 = 0 $ & $\mathbf{x}_2^*$ non-isolated stable fixed point \\
+\hline
+$p > p_c  $ & $\tau_1 > -c_2$ & $\triangle_1 < 0 $ & $\mathbf{x}_1^*$ saddle point \\
+$c_1 > c_2$ & $\tau_2 < 0$    & $\triangle_2 > 0 $ & $\mathbf{x}_2^*$ stable fixed point \\
+\hline
+$p < p_c  $ & $\tau_1 < -c_2$ & $\triangle_1 > 0 $ & $\mathbf{x}_1^*$ stable fixed point \\
+$c_1 < c_2$ & $\tau_2 < 0$    & $\triangle_2 < 0 $ & $\mathbf{x}_2^*$ saddle point \\
+\hline
+\end{tabular}
+\caption{Classification of fixed points using the results from the na\"{i}ve approach}
+\label{tab:analysis}
+\end{table}
+\begin{figure}
+\input{./plots/bifurcationDiagram.tex}
+\caption{Bifurcation diagram for the given system with $f=k=G=1$ and $p \in (-1,3)$. The filled circles indicate stable attracting fixed points. The empty ones symbolize a saddle point. The half filled circle represents a bifurcation.}
+\end{figure}
 
 
 \end{document}
