@@ -24,6 +24,7 @@ C(\alpha) = A_1 \alpha - \underbrace{ A_3 \alpha^3 + A_ 5 \alpha ^5 - A_7 \alpha
 for small $\alpha$ additionally the approximation $\alpha = \frac{\dot{y}}{V}$ is given. Plugging into ~\ref{eq:motion} yields:
 \begin{equation}
 0 = -m \ddot{y} + (\frac{1}{2}\rho V a A_1 -  r)\dot{y} - ky. 
+\label{eq:linear}
 \end{equation}
 Which may be rewritten in terms of two first order equations:
 \begin{align}
@@ -95,6 +96,25 @@ Equation~\ref{eq:nonLin} may be simulated in matlab using an explicit Runge-Kutt
 \caption{Nonlinear simulation results shown as time plot and in their phase plane representation for $V = 80 > V_c$.}
 \end{figure}
 
+\section{Comparison of linear and nonlinear dynamics around $V_c$}
+Setting $m=\rho=r=a=1$ yields the simplified version of equation~\ref{eq:linear} for the linear case at critical speed $V_c$:
+\begin{equation}
+0 = -\ddot{y} + (\frac{1}{2}V_c A_1 - 1 )\dot{y} - ky.
+\end{equation}
+Given that $V_c$ simplifies to $V_c = \frac{2}{A_1}$ the linear approximation predicts the term for the first derivative to be zero. However in the nonlinear case one obtains:
+\begin{equation}
+0 = -\ddot{y} + 
+\underbrace{(\frac{1}{2}V_c A_1 - 1 )}_\text{$=0$} \dot{y}  - ky 
++ \underbrace{\frac{1}{2} V_c^2 (- A_3 \frac{z^3}{V_c^3} + A_5 \frac{z^5}{V_c^5} - A_7 \frac{z^7}{V_c^7})}_\text{$\ne 0$}
+\end{equation}
+The additional nonlinear terms will move the position of the bifurcation points slightly. Furthermore this polynomial will exhibit quite different growth behavior in comparison to it's linear counter part. An expectation, which can indeed be confirmed by simulation. Figure~\ref{fig:linNonLinVcSim} shows the linear and nonlinear model dynamics for wind speed values close to $V_c$.
+\begin{figure}
+\centering
+\includegraphics[width=0.4\linewidth]{./plots/linearVcSim}
+\includegraphics[width=0.4\linewidth]{./plots/nonLinearVcSim}
+\caption{Linear(left) and nonlinear(right) model simulation results for wind speed values close to $V_c$}
+\label{fig:linNonLinVcSim}
+\end{figure}
 
 
 

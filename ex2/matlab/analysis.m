@@ -15,7 +15,7 @@ A7 = 2.955*10^(-8);
 Vc = (2*r)/(rho*a*A1);
 
 
-%%Non-Linear simulation.
+%% Non-Linear simulation.
 [T,Y] = ode45(@bridge,[0 10],[0.5 0]);
 
 figure(1)

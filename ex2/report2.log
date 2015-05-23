@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.11)  23 MAY 2015 20:19
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.11)  23 MAY 2015 22:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -882,22 +882,52 @@ Package caption Info: End \AtBeginDocument code.
 (./plots/odeSimV20.tex) (./plots/odeSimV20Plane.tex) (./plots/odeSimVc.tex)
 (./plots/odeSimVcPlane.tex) (./plots/odeSimV80.tex) (./plots/odeSimV80Plane.tex
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 104.
- [2] [3] [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 104.
+Overfull \hbox (14.05165pt too wide) in paragraph at lines 99--99
+[]\OT1/cmr/bx/n/17.28 Comparison of lin-ear and non-lin-ear dy-nam-ics around
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 99.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 99.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 99.
+
+[2] [3] [4] <./plots/linearVcSim.png, id=73, 421.575pt x 316.18124pt>
+File: ./plots/linearVcSim.png Graphic file (type png)
+
+<use ./plots/linearVcSim.png>
+Package pdftex.def Info: ./plots/linearVcSim.png used on input line 113.
+(pdftex.def)             Requested size: 182.09485pt x 136.57281pt.
+
+<./plots/nonLinearVcSim.png, id=74, 421.575pt x 316.18124pt>
+File: ./plots/nonLinearVcSim.png Graphic file (type png)
+
+<use ./plots/nonLinearVcSim.png>
+Package pdftex.def Info: ./plots/nonLinearVcSim.png used on input line 114.
+(pdftex.def)             Requested size: 182.09485pt x 136.57281pt.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 124.
+ [5 <./plots/linearVcSim.png (PNG copy)> <./plots/nonLinearVcSim.png (PNG copy)
+>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 124.
  (./report2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 104.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 104.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 124.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 124.
 Package rerunfilecheck Info: File `report2.out' has not changed.
-(rerunfilecheck)             Checksum: 3F7F52991F14C84C45F1D4222B93A688;173.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 104.
+(rerunfilecheck)             Checksum: 0A0B51FE6EB479AE7785337D424E2CA5;261.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 124.
  ) 
 Here is how much of TeX's memory you used:
- 26204 strings out of 494976
- 1074375 string characters out of 6179136
- 2070913 words of memory out of 5000000
- 28869 multiletter control sequences out of 15000+600000
- 10643 words of font info for 39 fonts, out of 8000000 for 9000
+ 26230 strings out of 494976
+ 1074839 string characters out of 6179136
+ 2073080 words of memory out of 5000000
+ 28885 multiletter control sequences out of 15000+600000
+ 12099 words of font info for 44 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  58i,15n,92p,98738b,1825s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
@@ -911,10 +941,10 @@ blic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt
 12.pfb>
-Output written on report2.pdf (4 pages, 222732 bytes).
+Output written on report2.pdf (5 pages, 248490 bytes).
 PDF statistics:
- 108 PDF objects out of 1000 (max. 8388607)
- 90 compressed objects within 1 object stream
- 24 named destinations out of 1000 (max. 500000)
- 37 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 125 PDF objects out of 1000 (max. 8388607)
+ 103 compressed objects within 2 object streams
+ 29 named destinations out of 1000 (max. 500000)
+ 55 words of extra memory for PDF output out of 10000 (max. 10000000)
 
