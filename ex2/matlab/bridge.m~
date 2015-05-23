@@ -3,7 +3,7 @@ function [ dy ] = bridge( t,y)
 %second nls exercise in input and output vectors contain the derivatives,
 %from the zeroth' to the second derivative in increasing order. 
 
-dy = zeros(2,1);
+dy = zeros(3,1);
 
 m = 1;
 rho = 1;
@@ -19,13 +19,14 @@ A7 = 2.955*10^(-8);
 % Computing Vc:
 Vc = (2*r)/(rho*a*A1);
 
-%V = Vc * (t/100);
-V = 20;
+V = Vc/10 * (t);
+
 
 %dot(z) = inVec(3); z = inVec(2); y = inVec(1);
 
-dy(1) = y(2);
-dy(2) = -k/m * y(1) - r/m * y(2) + (0.5/m)*(rho*V^2*a) ...
+dy(1) = y(1);
+dy(2) = y(2);
+dy(3) = -k/m * y(1) - r/m * y(2) + (0.5/m)*(rho*V^2*a) ...
             * (A1 * (y(2)/V)^1 - A3 * (y(2)/V)^3 + A5 * (y(2)/V)^5 ...
             - A7 * (y(2)/V)^7);
 

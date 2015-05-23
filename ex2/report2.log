@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.11)  23 MAY 2015 17:30
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.11)  23 MAY 2015 19:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -879,25 +879,26 @@ Package caption Info: End \AtBeginDocument code.
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./plots/tau1Plot.tex)
 (./plots/pplaneVleVc.tex) (./plots/pplaneVeqVc.tex) (./plots/pplaneVgtVc2.tex)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 70.
-
-[2] [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 70.
+(./plots/odeSimV20.tex) (./plots/pplaneV20NLS.tex) (./plots/odeSimVc.tex)
+(./plots/pplaneVeqVcNLS.tex) (./plots/odeSimV80.tex) (./plots/pplaneV80NLS.tex)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 104.
+[2] [3] [4]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 104.
  (./report2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 70.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 70.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 104.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 104.
 Package rerunfilecheck Info: File `report2.out' has not changed.
-(rerunfilecheck)             Checksum: 5AE1A888533048BD70FFEE80BDBC45D4;103.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 70.
+(rerunfilecheck)             Checksum: 3F7F52991F14C84C45F1D4222B93A688;173.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 104.
  ) 
 Here is how much of TeX's memory you used:
- 26116 strings out of 494976
- 895083 string characters out of 6179136
- 2042850 words of memory out of 5000000
- 28807 multiletter control sequences out of 15000+600000
- 10474 words of font info for 38 fonts, out of 8000000 for 9000
+ 26205 strings out of 494976
+ 1166324 string characters out of 6179136
+ 2092400 words of memory out of 5000000
+ 28870 multiletter control sequences out of 15000+600000
+ 10643 words of font info for 39 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 58i,15n,92p,98738b,1825s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 58i,15n,92p,98738b,1857s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texl
@@ -907,11 +908,12 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
 type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy8.pfb>
-Output written on report2.pdf (3 pages, 174713 bytes).
+cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt
+12.pfb>
+Output written on report2.pdf (4 pages, 236467 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
- 73 compressed objects within 1 object stream
- 17 named destinations out of 1000 (max. 500000)
- 29 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 108 PDF objects out of 1000 (max. 8388607)
+ 90 compressed objects within 1 object stream
+ 24 named destinations out of 1000 (max. 500000)
+ 37 words of extra memory for PDF output out of 10000 (max. 10000000)
 

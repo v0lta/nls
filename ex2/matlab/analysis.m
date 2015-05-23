@@ -14,9 +14,8 @@ A7 = 2.955*10^(-8);
 %% Computing Vc:
 Vc = (2*r)/(rho*a*A1);
 
-[T,Y] = ode45(@bridge,[1 20],[1 1 1]);
+[T,Y] = ode45(@bridge,[0 10],[0.5 0]);
 
 plot(T,Y(:,1))
 hold on;
-%plot(T,Y(:,2))
-%plot(T,Y(:,3))
+plot(T,Y(:,2))

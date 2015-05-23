@@ -67,4 +67,38 @@ A plot for $\tau_1$ with respect for different values for $V$ is given in figure
 \input{./plots/pplaneVgtVc2.tex}
 \caption{Plot of the two dimensional linearized system with $V = 80 > V_c$.}
 \end{figure}
+
+
+
+
+\section{Simulation of the non-linear System}
+In this sections simulation will be attempted without linearization. Including all terms the following system of first order ordinary differential equations is obtained:
+\begin{align}
+\dot{y} &= z \\
+\dot{z} &= -\frac{ky}{m} - \frac{rz}{m} + \frac{1}{2} \frac{\rho V^2 a}{m} [ A_1\frac{z^1}{V^1} - A_3 \frac{z^3}{V^3} + A_5 \frac{z^5}{V^5} - A_7 \frac{z^7}{V^7} ].
+\label{eq:nonLin}
+\end{align} 
+Equation~\ref{eq:nonLin} may be simulated in matlab using an explicit Runge-Kutta type solver (\texttt{ode45}). Results are given in figure.
+\begin{figure}
+\input{./plots/odeSimV20.tex}
+\input{./plots/pplaneV20NLS.tex}
+\caption{Nonlinear simulation results (left) and phase plane representation (right) for $V = 20 < V_c$. In the left plot bridge position is shown in blue. The first derivative is depicted in red.}
+\end{figure}
+\begin{figure}
+\input{./plots/odeSimVc.tex}
+\input{./plots/pplaneVeqVcNLS.tex}
+\caption{Nonlinear simulation results (left) and phase plane representation (right) for $V = V_c$.}
+\end{figure}
+\begin{figure}
+\input{./plots/odeSimV80.tex}
+\input{./plots/pplaneV80NLS.tex}
+\caption{Nonlinear simulation results (left) and phase plane representation (right) for $V = 80 > V_c$.}
+\end{figure}
+
+
+
+
+
+
+
 \end{document}
