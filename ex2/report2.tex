@@ -1,0 +1,65 @@
+
+\input{./src/preamble.tex}
+
+\begin{document}
+
+\title{Exercise 2 Bridge Oscillations}
+\author{Moritz Wolter}
+
+\maketitle
+
+In this report the effects of Wind on a poorly designed bridge will be explored.
+\section{Equation of Motion}
+The model for the structure leads to the following equation of motion:
+\begin{align}
+0 &= - F_I - F_d - F_e + F_{dr} \\
+0 &= -m \ddot{y} - r\dot{y} - ky + \frac{1}{2} \rho V^2 a C(\alpha) \label{eq:motion}.
+\end{align}
+Where $C(\alpha)$ is a nonlinear function.
+\section{Linear Analysis}
+$C(\alpha)$ is defined as a sum of several odd powers of $\alpha$:
+\begin{equation}
+C(\alpha) = A_1 \alpha - \underbrace{ A_3 \alpha^3 + A_ 5 \alpha ^5 - A_7 \alpha^7.}_\text{$\approx 0$ for small $\alpha$.} 
+\end{equation}
+for small $\alpha$ additionally the approximation $\alpha = \frac{\dot{y}}{V}$ is given. Plugging into ~\ref{eq:motion} yields:
+\begin{equation}
+0 = -m \ddot{y} + (\frac{1}{2}\rho V a A_1 -  r)\dot{y} - ky. 
+\end{equation}
+Which may be rewritten in terms of two first order equations:
+\begin{align}
+\begin{pmatrix}
+\dot{x} \\ \dot{y} \end{pmatrix} &=
+\begin{pmatrix}
+	\frac{\frac{1}{2}\rho V a A_1 -  r}{m} & - \frac{k}{m}  \\ 
+	1 & 0
+\end{pmatrix} 
+\begin{pmatrix}
+x \\ y
+\end{pmatrix}
+\end{align}
+Setting the derivatives to zero the fixed point $\mathbf{x}_1^* = \begin{pmatrix} 0 & 0 \end{pmatrix}^T$ is obtained. As a linear approximation as already taken place the Jacobi-matrix is identical to the system matrix given above. Thus for the trace $\tau_1$ and determinant $\triangle_1$ at the fixed point the following equations are obtained:
+\begin{align}
+\tau_1 = \frac{\frac{1}{2}\rho V a A_1 -  r}{m} & - \frac{k}{m} \\
+\triangle_1 = \frac{k}{m}.
+\end{align}
+Assuming $(k \wedge m) > 0$ the nature of the fixed point is determined by the trace. The critical value will occur for $tau_1 = 0$, therefore it my be found from:
+\begin{equation}
+0 = \frac{1}{2} \frac{\rho V^2 a A_1}{mV_c} - \frac{r}{m}.
+\end{equation}
+Solving for $V_c$ leads to:
+\begin{equation}
+V_c = \frac{2r}{\rho a A_1} = 42.5985.
+\end{equation}
+When $m = 1, \; \rho = 1, \; r = 1 \; k = 100, \; a = 1$ and $A_1 = 100$. 
+A plot for $\tau_1$ with respect for different values for $V$ is given in figure~\ref{fig:tau1}. As the determinant remains positive at all times the fixed point at the center changes from a stable to an unstable spiral at the critical wind speed $V_c$. 
+\begin{figure}
+\input{./plots/tau1Plot.tex}
+\caption{Plot of $tau_1$ for different speed values. The critical wind speed $V_c$ is marked with an red asterisk.}
+\label{fig:tau1}
+\end{figure}
+
+
+
+
+
+\end{document}
