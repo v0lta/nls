@@ -1,7 +1,10 @@
 clear all
 
 %addpath(genpath('/home/r0483530/nonLinearSys/matlab/matcont6p1'))
-addpath(genpath('/home/moritz/uni/nls/matlab/matcont'))
+addpath(genpath('/home/moritz/uni/nls/matlab/cl_matcont2.5.1'))
+%addpath(genpath('/home/moritz/uni/nls/matlab/matcont5p3'))
+%addpath(genpath('/home/moritz/uni/nls/matlab/matcont5p3'))
+%addpath(genpath('/home/moritz/uni/nls/matlab/matcont2.4.2'))
 
 global cds sys
 
@@ -70,8 +73,8 @@ opt = contset(opt,'InitStepsize',0.01); %Set Initial stepsize
 
 % [x1,v1,s1,h1,f1]=cont(x1,v1,s1,h1,f1,cds);
 
-%figure()
-%cpl(x1,v1,s1,[2 1]);
+figure()
+cpl(x1,v1,s1,[2 1]);
 
 %%
 %%%%% Branch swiching anc continuation %%%%%%%%%%%%%
