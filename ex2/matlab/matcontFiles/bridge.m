@@ -3,7 +3,7 @@ function [ out ] = bridge
 %reference from schilda :-).
 
 out{1} = @init;
-out{2} = @funEval;
+out{2} = @fun_eval;
 out{3} = [];
 out{4} = [];
 out{5} = [];
@@ -14,7 +14,7 @@ out{9} = [];
 end
 
 %-------------------------------------------------------------------------
-function dy = funEval(t,y,V) 
+function dy = fun_eval(t,y,V) 
 
 m = 1;
 rho = 1;
