@@ -1,10 +1,8 @@
 clear all
 
-%addpath(genpath('/home/r0483530/nonLinearSys/matlab/matcont6p1'))
-addpath(genpath('/home/moritz/uni/nls/matlab/cl_matcont2.5.1'))
-%addpath(genpath('/home/moritz/uni/nls/matlab/matcont5p3'))
-%addpath(genpath('/home/moritz/uni/nls/matlab/matcont5p3'))
-%addpath(genpath('/home/moritz/uni/nls/matlab/matcont2.4.2'))
+
+addpath(genpath('../../../../matlab/cl_matcont2.5.1/'))
+
 
 global cds sys
 
@@ -88,8 +86,8 @@ pvec(ap)=x1(2,s1(2).index);  %Extract branch point
 
 [x2,v2,s2,h2,f2]=cont(@equilibrium,x0,v0,opt); %Switch branches and continue.
 
-%figure()
-%cpl(x2,v2,s2,[2 1]);
+figure()
+cpl(x2,v2,s2,[2 1]);
 
 %%
 %%%%% Backward continuation from near BP %%%%%%%%%%%
@@ -103,8 +101,8 @@ pvec(ap)=x1(2,s1(2).index);  %Extract branch point
 opt=contset(opt,'Backward',1);  %Compute backward
 [x3,v3,s3,h3,f3]=cont(@equilibrium,x0,[],opt);
 
-%figure()
-%cpl(x3,v3,s3,[2 1]);
+figure()
+cpl(x3,v3,s3,[2 1]);
 
 %%
 %%%%% Plotting script.  x=continuation info  f=eigenvalues %%%%%%%%%
