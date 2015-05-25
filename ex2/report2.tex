@@ -37,6 +37,7 @@ Which may be rewritten in terms of two first order equations:
 \begin{pmatrix}
 x \\ y
 \end{pmatrix}
+\label{eq:linSys}
 \end{align}
 Setting the derivatives to zero the fixed point $\mathbf{x}_1^* = \begin{pmatrix} 0 & 0 \end{pmatrix}^T$ is obtained. As a linear approximation as already taken place the Jacobi-matrix is identical to the system matrix given above. Thus for the trace $\tau_1$ and determinant $\triangle_1$ at the fixed point the following equations are obtained:
 \begin{align}
@@ -50,6 +51,7 @@ Assuming $(k \wedge m) > 0$ the nature of the fixed point is determined by the t
 Solving for $V_c$ leads to:
 \begin{equation}
 V_c = \frac{2r}{\rho a A_1} = 42.5985.
+\label{eq:devVc}
 \end{equation}
 When $m = 1, \; \rho = 1, \; r = 1 \; k = 100, \; a = 1$ and $A_1 = 100$. 
 A plot for $\tau_1$ with respect for different values for $V$ is given in figure~\ref{fig:tau1}. As the determinant remains positive at all times the fixed point at the center changes from a stable to an unstable spiral at the critical wind speed $V_c$. 
@@ -117,9 +119,40 @@ The additional nonlinear terms will move the position of the bifurcation points 
 \end{figure}
 
 \section{Limit cycle and bifurcation analysis}
+So far only a bifurcation with respect to the stability of the fixed point at the origin has been discovered. However a closer look at the system's eigenvalues will reveal another interesting property. Considering the expression derived in \ref{eq:linSys} the eigenvalues are:
+\begin{equation}
+\lambda_{1,2} = -\frac{1}{2} + \frac{1}{4}VA_1 \pm \sqrt{(\frac{1}{2}-\frac{1}{4}VA_1)^2 - 1}
+\end{equation}
+The interesting part is the one underneath the square root. If this part turns negative the eigenvalues of the Jacobian become complex, which would lead to a Hopf-bifurcation \footnote{book page 251}. Thus the following condition is derived:
+\begin{align}
+(\frac{1}{2} - \frac{1}{4}VA_1)^2 - 1 &< 0 \\
+(\frac{1}{2} - \frac{1}{4}VA_1)^2  &< 1 \\
+(\frac{1}{2} - \frac{1}{4}VA_1) &< 1 \\
+\frac{1}{2}  &< \frac{1}{4}VA_1  \\
+\frac{2}{A_1} &< V \\
+\end{align}
+This new inequality is true when $V$ surpasses $V_c$. Using equation~\ref{eq:devVc}:
+\begin{equation}
+V_c < V.
+\end{equation}
+Thus the first bifurcation is a Hopf-bifurcation. Figures and explore what happens after this first Hopf bifurcation.
+
+\begin{figure}
+\input{./plots/f0p9.tex}
+\input{./plots/f1.tex}
+\caption{Initial situation with $V = 0.9 < V_c$ (left). The fixed point at the origin is stable.$V = 1 = V_c$  (right). Initial conditions within the green circle oscillate forever.}
+\input{./plots/f1p241.tex}
+\input{./plots/f1p5.tex}
+\caption{$V = 1.2 > V_c$ the Hopf bifurcation has occurred and a yellow ghost foreshadows another event (left). $V=1.5 > V_c$ the ghost reveals a cyclic saddle node bifurcation, as the backward solution of the initial condition at $(0,500)$ shown in purple hits another boundary (right).}
+\input{./plots/f1p9.tex}
+\caption{$V = 1.9 > V_c$ the two inner circles have collided and annihilated each other leaving behind another ghost that slows trajectories in its vicinity.}
+\end{figure}
+
+
 \begin{figure}
 \input{./plots/MatcontBifurcation.tex}
 \includegraphics{./plots/matcont.pdf}
+\caption{\texttt{matcont} output. The top plot an excerpt of the bottom 3D-graphic. The two additional bifurcation points $1.243$ and $1.823$ can be read off.}
 \end{figure}
 
 
