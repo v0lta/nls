@@ -40,6 +40,9 @@ xh = x1(1:2,s1(2).index);
 Vh = x1(3,s1(2).index);
 i  = s1(2).index;
 
+%figure(4)
+%cpl(x1,v1,s1,[1 2]);
+
 % -----------------------------------------------
 % IMPORTANT
   opt=contset(opt,'MinStepsize',0.001);
@@ -48,7 +51,7 @@ i  = s1(2).index;
   opt=contset(opt,'Adapt',1);
   opt=contset(opt,'MaxNumPoints',120);
 
-  ntst = 8;  % number of mesh-intervals
+  ntst = 15;  % number of mesh-intervals
              % this is an initial guess !!!!!!
              % increase this argument !
   ncol = 4;  % number of collocation points

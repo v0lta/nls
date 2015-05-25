@@ -19,9 +19,9 @@ A7 = 2.955*10^(-8);
 % Computing Vc:
 Vc = (2*r)/(rho*a*A1);
 
-V = Vc/10 * (1 + 0.1*floor(t/10));
+%V = Vc/10 * (1 + 0.1*floor(t/10));
 %V = 20;
-%V = Vc;
+V = Vc;
 %V = 80;
 
 

@@ -36,3 +36,6 @@ ylabel('y')
 
 %figure(2)
 %plot(Y(:,1),Y(:,2))
+
+
+%a limit cycle forms = hopf bifurcation.

@@ -110,13 +110,17 @@ Given that $V_c$ simplifies to $V_c = \frac{2}{A_1}$ the linear approximation pr
 The additional nonlinear terms will move the position of the bifurcation points slightly. Furthermore this polynomial will exhibit quite different growth behavior in comparison to it's linear counter part. An expectation, which can indeed be confirmed by simulation. Figure~\ref{fig:linNonLinVcSim} shows the linear and nonlinear model dynamics for wind speed values close to $V_c$.
 \begin{figure}
 \centering
-\includegraphics[width=0.4\linewidth]{./plots/linearVcSim}
-\includegraphics[width=0.4\linewidth]{./plots/nonLinearVcSim}
+\includegraphics[width=0.4\linewidth]{./plots/linearVcSim.pdf}
+\includegraphics[width=0.4\linewidth]{./plots/nonLinearVcSim.pdf}
 \caption{Linear(left) and nonlinear(right) model simulation results for wind speed values close to $V_c$}
 \label{fig:linNonLinVcSim}
 \end{figure}
 
-
+\section{Limit cycle and bifurcation analysis}
+\begin{figure}
+\input{./plots/MatcontBifurcation.tex}
+\includegraphics{./plots/matcont.pdf}
+\end{figure}
 
 
 
