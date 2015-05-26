@@ -59,19 +59,19 @@ figure(1);clf;hold on
 
 % PROCESS RESULTS  
 % (u,r) - plane
-figure(2);clf;hold on
-cpl(x2,v2,s2,[1,2]);
-cpl(x3,v3,s3,[1,2]);
-axis([-2 2 -0.5 1])
-xlabel('u');ylabel('r')
+h = figure(2);clf;hold on
+cpl(x2,v2,s2,[2,1]);
+cpl(x3,v3,s3,[2,1]);
+axis([-0.5 1 -2 2 ])
+xlabel('r');ylabel('u')
 grid on
 
 % (u,h) - plane
 figure(3);clf;hold on
-cpl(x2,v2,s2,[1,3]);
-cpl(x3,v3,s3,[1,3]);
-axis([-2 2 -1 1])
-xlabel('u');ylabel('h')
+cpl(x2,v2,s2,[3,1]);
+cpl(x3,v3,s3,[3,1]);
+axis([-1 1 -2 2 ])
+xlabel('h');ylabel('u')
 grid on
 
 % (r,h) - plane

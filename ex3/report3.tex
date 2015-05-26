@@ -15,12 +15,18 @@
 \end{equation}
 
 \section{Bifurcation analysis}
+\subsection{Manual analysis}
 Bifurcation analysis means looking at fixed point movement and the evolution of their stability. In this report equation~\ref{eq:toBeAn} will be analyzed thoroughly. It contains the information of the fixed point location for the system:
 \begin{equation}
-\dot{u} = -\frac{1}{2} u^3 + ru + h.   
+\dot{u} = -\frac{1}{2} u^3 + ru + h. 
+\label{eq:sys} 
 \end{equation}
-\texttt{matcont} may be used to do this kind of analysis. However to put the results into perspective. A manual analysis has been performed beforehand \footnote{see pages 70-73 in Strogatz' book}. 
-
+\texttt{matcont} may be used to do this kind of analysis. However to put the results into perspective. A manual analysis has been performed beforehand \footnote{see pages 70-73 in Strogatz' book}. Figures~\ref{fig:one},\ref{fig:two}\,\ref{fig:tree} show each a graphical approach to find the zeros of \ref{eq:toBeAn} in the first column. The second column shows the evolution of the position of the zeros. For different values for the imperfection parameter $h = 5,0 \text{ and } 1$ as well as $r \in [-30,30]$ with a step size of $0.1$.
+As \ref{eq:sys} is a first order system linear stability analysis may be employed to learn more about the system dynamics. The first derivative of $f(u) = -\frac{1}{2} u^3 + ru + h$. 
+\begin{equation}
+f'(u) = -\frac{3}{2}u^2 + r.
+\end{equation}
+At the extreme points the derivative is zero, which leads to $u_{max} = \sqrt{\frac{2}{3}r}$. Thus leading to the maximum values $f(u_{max})= \frac{1}{3} \sqrt{\frac{2}{3}}r^{3/2}$. As bifurcations occur when $h$ hits the local maximum values one obtains $h_c = \pm f(u_{max})$. In the second column of the figures~\ref{fig:one},\ref{fig:two}\,\ref{fig:tree} the effect of the imperfection parameter may be observed. For $h = 0$ a textbook pitchfork bifurcation is observed. However if $h \ne 0$ the fork separates which one part moving up or down with respect to x depending on the sign.
 \begin{figure}
 \centering
 \input{./plots/solBranchRloop.tex}
@@ -30,11 +36,36 @@ Bifurcation analysis means looking at fixed point movement and the evolution of 
 \input{./plots/solBranchRloopHzero.tex}
 \input{./plots/zerosRloopHzero.tex}
 \caption{Solution branches with the function $-\frac{1}{2} u^3 + ru $ numerous colors for different $r\in [-30,30]$ and the constant function $h=0$ in red (left). Root locus plot for the same $r$ values (right).}
+\label{fig:two}
 \input{./plots/solBranchRloopHneg.tex}
 \input{./plots/zerosRloopHneg.tex}
 \caption{Solution branches with the function $-\frac{1}{2} u^3 + ru $ numerous colors for different $r\in [-30,30]$ and the constant function $h=-5$ in red (left). Root locus plot for the same $r$ values (right).}
+\label{fig:tree}
 \end{figure}
 
+\newpage
+\subsection{\texttt{matcont} analysis}
+%this is odd!
+\begin{figure}
+\input{./plots/matconth0p1arm.tex}
+\input{./plots/matconth0p1u.tex}
+\caption{\texttt{matcont output for $h=0.1$}}
+%\input{./plots/matcont-h0p1arm.tex}
+%\input{./plots/matcont-h0p1u.tex}
+%\caption{\texttt{matcont output for $h=-0.1$}}
+\end{figure}
+%end odd stuff.
+
+\begin{figure}
+\input{./plots/matconth0p1uh.tex}
+%\input{./plots/matcont-h0p1uh.tex}
+\caption{\texttt{matcont output for $h=0.1$}}
+\end{figure}
+
+\begin{figure}
+\input{./plots/matconth0p1rh.tex}
+\caption{\texttt{matcont output for $h=0.1$}}
+\end{figure}
 
 
 \end{document}
