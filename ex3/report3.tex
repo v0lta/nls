@@ -1,0 +1,40 @@
+
+\input{./src/preamble.tex}
+
+\begin{document}
+
+\title{Exercise 3 Imperfect bifurcations}
+\author{Moritz Wolter}
+
+\maketitle
+
+\section{The equation}
+\begin{equation}
+-\frac{1}{2} u^3 + ru + h = 0. 
+\label{eq:toBeAn}
+\end{equation}
+
+\section{Bifurcation analysis}
+Bifurcation analysis means looking at fixed point movement and the evolution of their stability. In this report equation~\ref{eq:toBeAn} will be analyzed thoroughly. It contains the information of the fixed point location for the system:
+\begin{equation}
+\dot{u} = -\frac{1}{2} u^3 + ru + h.   
+\end{equation}
+\texttt{matcont} may be used to do this kind of analysis. However to put the results into perspective. A manual analysis has been performed beforehand \footnote{see pages 70-73 in Strogatz' book}. 
+
+\begin{figure}
+\centering
+\input{./plots/solBranchRloop.tex}
+\input{./plots/zerosRloop.tex}
+\caption{Solution branches with the function $-\frac{1}{2} u^3 + ru $ numerous colors for different $r\in [-30,30]$ and the constant function $h=5$ in red (left). Root locus plot for the same $r$ values (right).}
+\label{fig:one}
+\input{./plots/solBranchRloopHzero.tex}
+\input{./plots/zerosRloopHzero.tex}
+\caption{Solution branches with the function $-\frac{1}{2} u^3 + ru $ numerous colors for different $r\in [-30,30]$ and the constant function $h=0$ in red (left). Root locus plot for the same $r$ values (right).}
+\input{./plots/solBranchRloopHneg.tex}
+\input{./plots/zerosRloopHneg.tex}
+\caption{Solution branches with the function $-\frac{1}{2} u^3 + ru $ numerous colors for different $r\in [-30,30]$ and the constant function $h=-5$ in red (left). Root locus plot for the same $r$ values (right).}
+\end{figure}
+
+
+
+\end{document}

@@ -1,0 +1,35 @@
+
+%% ----------------------- find the zeros ----------------------------------
+
+r = 0;
+x = -5:0.1:5;
+y = -x.^3 + r.*x;
+
+figure(1)
+plot(x,y);
+hold on;
+h = 2;
+plot(x,h,'r.');
+hold off;
+
+coeff = [-1 0 r h];
+rootVec = roots(coeff)
+
+%% ------------------------plotting r with parameter h-----------------------
+figure(2)
+
+h = 2;
+
+for r = -50:0.1:50
+    coeff = [-1 0 r h];
+    rootVec = roots(coeff);
+    for i=1:length(i)
+        if rootVec
+        
+    end
+    
+    
+    plot(r,real(rootVec),'b.')
+    hold on;
+end
+hold off;
