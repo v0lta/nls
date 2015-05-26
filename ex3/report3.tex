@@ -31,40 +31,36 @@ At the extreme points the derivative is zero, which leads to $u_{max} = \sqrt{\f
 \centering
 \input{./plots/solBranchRloop.tex}
 \input{./plots/zerosRloop.tex}
+\input{./plots/zerosHloopRpos.tex}
 \caption{Solution branches with the function $-\frac{1}{2} u^3 + ru $ numerous colors for different $r\in [-30,30]$ and the constant function $h=5$ in red (left). Root locus plot for the same $r$ values (right).}
 \label{fig:one}
 \input{./plots/solBranchRloopHzero.tex}
 \input{./plots/zerosRloopHzero.tex}
+\input{./plots/zerosHloopRzero.tex}
 \caption{Solution branches with the function $-\frac{1}{2} u^3 + ru $ numerous colors for different $r\in [-30,30]$ and the constant function $h=0$ in red (left). Root locus plot for the same $r$ values (right).}
 \label{fig:two}
 \input{./plots/solBranchRloopHneg.tex}
 \input{./plots/zerosRloopHneg.tex}
+\input{./plots/zerosHloopRneg.tex}
 \caption{Solution branches with the function $-\frac{1}{2} u^3 + ru $ numerous colors for different $r\in [-30,30]$ and the constant function $h=-5$ in red (left). Root locus plot for the same $r$ values (right).}
 \label{fig:tree}
 \end{figure}
 
 \newpage
 \subsection{\texttt{matcont} analysis}
-%this is odd!
 \begin{figure}
-\input{./plots/matconth0p1arm.tex}
-\input{./plots/matconth0p1u.tex}
-\caption{\texttt{matcont output for $h=0.1$}}
-%\input{./plots/matcont-h0p1arm.tex}
-%\input{./plots/matcont-h0p1u.tex}
-%\caption{\texttt{matcont output for $h=-0.1$}}
+\input{./plots/matconth0p1ur.tex}
+\input{./plots/matcontr0p1uh.tex}
 \end{figure}
-%end odd stuff.
 
 \begin{figure}
-\input{./plots/matconth0p1uh.tex}
-%\input{./plots/matcont-h0p1uh.tex}
+\input{./plots/matcont-h0p1ur.tex}
+\input{./plots/matcont-r0p1uh.tex}
 \caption{\texttt{matcont output for $h=0.1$}}
 \end{figure}
 
 \begin{figure}
-\input{./plots/matconth0p1rh.tex}
-\caption{\texttt{matcont output for $h=0.1$}}
+\input{./plots/matcontrh.tex}
 \end{figure}
 
 

@@ -19,7 +19,7 @@ global cds
 % ---------------------------------------------------------
   r  = 1.0;    % initial value active parameter r
 % ---------------------------------------------------------
-  h  = -0.1;    % fixed value ==> USER setting
+  h  = 0.1;    % fixed value ==> USER setting
 % ---------------------------------------------------------
   p0 = [r;h]; 
   ap = 1;      % Note: index of continuation parameter = 1

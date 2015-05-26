@@ -34,8 +34,8 @@ opt=contset;
   opt=contset(opt,'Singularities',1);
   opt=contset(opt,'Eigenvalues',1);
 % Set initial parameter values p ==> p = [r;h]
-  r  = 0;     % Note: r is fixed to this value
-  h  = 0;    % Note: h is the (active) parameter
+  r  = -0.1;     % Note: r is fixed to this value
+  h  = 0.1;    % Note: h is the (active) parameter
   u0 = -1.5;     % find fixed point
   p0 = [r;h]; % r and h are set by the user
   ap = 2;     % Note: index of continuation parameter = 2

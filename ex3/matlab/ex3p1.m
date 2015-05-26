@@ -7,8 +7,8 @@ clear
 
 %big values
 setArray = 30; %<--has to be pos!
-setParam = 5;
-step = 0.1;
+setParam = 0;
+step = 0.5;
 
 
 %% ----------------------- find the zeros ---------------------------------
@@ -25,14 +25,14 @@ for r = linspace(-maxR,maxR,10)
 end
 plot(x,h,'r.');
 hold off;
-%axis([min(x),max(x),-100,100])
+axis([min(x),max(x),-100,100])
 
 coeff = [-1 0 r h];
 rootVec = roots(coeff)
 
 %% ------------------------plotting r with const parameter h---------------
 figure(2)
-
+h = setParam;
 for r = -maxR:step:maxR
     coeff = [-1 0 r h];
     rootVec = roots(coeff);
