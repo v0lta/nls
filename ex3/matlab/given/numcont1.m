@@ -100,7 +100,7 @@ opt=contset;
     title(['r = ' num2str(r)])
     grid on
     %last exercise
-    axis([-0.025 -0.0005 -0.6 0.5])
+    %axis([-0.025 -0.0005 -0.6 0.5])
 
     % The code below has been tested for r=1 only!
     % For other values of r ( r<=0 or r>0) the code below might not work. 

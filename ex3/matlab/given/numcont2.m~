@@ -43,7 +43,7 @@ global cds
   % my stuff.
   opt=contset(opt,'MinStepsize',0.001);
   opt=contset(opt,'MaxStepsize',0.01);
-  %watch the step stepsize ratio, parameter ratio.
+  %watch the step stepsize ratio.
   
   
   opt=contset(opt,'MaxNewtonIters',4);

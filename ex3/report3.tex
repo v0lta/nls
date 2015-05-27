@@ -16,62 +16,71 @@
 
 \section{Bifurcation analysis}
 \subsection{Manual analysis}
-Bifurcation analysis means looking at fixed point movement and the evolution of their stability. In this report equation~\ref{eq:toBeAn} will be analyzed thoroughly. It contains the information of the fixed point location for the system:
+Bifurcation analysis means looking at fixed point movement and the evolution of their stability. In this report equation~\ref{eq:toBeAn} will be analyzed thoroughly. It contains the information of the fixed point locations for the system:
 \begin{equation}
 \dot{u} = -\frac{1}{2} u^3 + ru + h. 
 \label{eq:sys} 
 \end{equation}
-\texttt{matcont} may be used to do this kind of analysis. However to put the results into perspective. A manual analysis has been performed beforehand \footnote{see pages 70-73 in Strogatz' book}. Figures~\ref{fig:one},\ref{fig:two}\,\ref{fig:tree} show each a graphical approach to find the zeros of \ref{eq:toBeAn} in the first column. The second column shows the evolution of the position of the zeros. For different values for the imperfection parameter $h = 5,0 \text{ and } 1$ as well as $r \in [-30,30]$ with a step size of $0.1$.
-As \ref{eq:sys} is a first order system linear stability analysis may be employed to learn more about the system dynamics. The first derivative of $f(u) = -\frac{1}{2} u^3 + ru + h$. 
+\texttt{matcont} may be used to do this kind of analysis. However to put the results into perspective. A manual analysis has been performed beforehand \footnote{see pages 70-73 in Strogatz' book}. Figures~\ref{fig:one},\ref{fig:two}\,\ref{fig:tree} show each a graphical approach to find the zeros of \ref{eq:toBeAn} in the first column. The second column shows the evolution of the position of the zeros. For different values for the imperfection parameter $h = 5,0 \text{ and } 1$ as well as $r \in [-30,30]$ with a step size of $0.1$. Finally the last columns do the same for different values of $h$ with r constant.
+Linear stability analysis may be employed to learn more about the system dynamics. The first derivative of $f(u) = -\frac{1}{2} u^3 + ru + h$ is: 
 \begin{equation}
 f'(u) = -\frac{3}{2}u^2 + r.
 \end{equation}
-At the extreme points the derivative is zero, which leads to $u_{max} = \sqrt{\frac{2}{3}r}$. Thus leading to the maximum values $f(u_{max})= \frac{1}{3} \sqrt{\frac{2}{3}}r^{3/2}$. As bifurcations occur when $h$ hits the local maximum values one obtains $h_c = \pm f(u_{max})$. In the second column of the figures~\ref{fig:one},\ref{fig:two}\,\ref{fig:tree} the effect of the imperfection parameter may be observed. For $h = 0$ a textbook pitchfork bifurcation is observed. However if $h \ne 0$ the fork separates which one part moving up or down with respect to x depending on the sign.
+At the extreme points the derivative is zero, which leads to $u_{max} = \sqrt{\frac{2}{3}r}$. Thus leading to the maximum values $f(u_{max})= \frac{1}{3} \sqrt{\frac{2}{3}}r^{3/2}$. As bifurcations occur when $h$ hits the local maximum values one obtains $h_c = \pm f(u_{max})$. In the second column of the figures~\ref{fig:one},\ref{fig:two}\,\ref{fig:tree} the effect of the imperfection parameter may be observed. $h = 0$ leads to a textbook pitchfork bifurcation. However if $h \ne 0$ the fork separates and a saddle node bifurcation occurs which one part moving up or down with respect to x depending on the parameter signs.
 \begin{figure}
 \centering
 \input{./plots/solBranchRloop.tex}
 \input{./plots/zerosRloop.tex}
 \input{./plots/zerosHloopRpos.tex}
-\caption{Solution branches with the function $-\frac{1}{2} u^3 + ru $ numerous colors for different $r\in [-30,30]$ and the constant function $h=5$ in red (left). Root locus plot for the same $r$ values (right).}
+\caption{Solution branches with the function $-\frac{1}{2} u^3 + ru $ numerous colors for different $r\in [-30,30]$ and the constant function $h=5$ in red (left). Root locus plot for the same $r$ values (center). Solution for different $h$ with constant $r = 5$ (right).}
 \label{fig:one}
 \input{./plots/solBranchRloopHzero.tex}
 \input{./plots/zerosRloopHzero.tex}
 \input{./plots/zerosHloopRzero.tex}
-\caption{Solution branches with the function $-\frac{1}{2} u^3 + ru $ numerous colors for different $r\in [-30,30]$ and the constant function $h=0$ in red (left). Root locus plot for the same $r$ values (right).}
+\caption{Solution branches with the function $-\frac{1}{2} u^3 + ru $ numerous colors for different $r\in [-30,30]$ and the constant function $h=0$ in red (left). Root locus plot for the same $r$ values (center). Solution for different $h$ with constant $r = 0$ (right).}
 \label{fig:two}
 \input{./plots/solBranchRloopHneg.tex}
 \input{./plots/zerosRloopHneg.tex}
 \input{./plots/zerosHloopRneg.tex}
-\caption{Solution branches with the function $-\frac{1}{2} u^3 + ru $ numerous colors for different $r\in [-30,30]$ and the constant function $h=-5$ in red (left). Root locus plot for the same $r$ values (right).}
+\caption{Solution branches with the function $-\frac{1}{2} u^3 + ru $ numerous colors for different $r\in [-30,30]$ and the constant function $h=-5$ in red (left). Root locus plot for the same $r$ values (center). Solution for different $h$ with constant $r = -5$ (right).}
 \label{fig:tree}
 \includegraphics[scale = 0.5]{./plots/zerosrhu.pdf}
 \caption{$r,h,u$ plot of the polynomial roots.}
+\label{fig:3d}
 \end{figure}
+Figure \ref{fig:3d} is a three dimensional data representation. It contains all the other plots either as cross sections or projections \footnote{book strogatz page 73}. The saddle node bifurcation, which leads to the folded shape of the $r,h$ plane. 
 
 \newpage
 \subsection{\texttt{matcont} analysis}
 \begin{figure}
 \input{./plots/matconth0p1ur.tex}
 \input{./plots/matcontr0p1uh.tex}
-\end{figure}
-
-\begin{figure}
+\caption{\texttt{matcont output for $h=0.1$}}
+\label{fig:matcontPos}
 \input{./plots/matcont-h0p1ur.tex}
 \input{./plots/matcont-r0p1uh.tex}
-\caption{\texttt{matcont output for $h=0.1$}}
+\caption{\texttt{matcont output for $h=-0.1$}}
+\label{fig:matcontNeg}
 \end{figure}
+Figures~\ref{fig:matcontPos} and~\ref{fig:matcontNeg}, repeat the previous experiments using the \texttt{matcont} command line package. The computed figures are similarly shaped as those found previously. Thus it is assumed that computations are correct. The \texttt{matcont} package has the added benefit, that unstable points are distinguished from stable ones and drawn in red.
 
 \begin{figure}
 \input{./plots/matcontrh.tex}
+\caption{Evolution of the zeros within the $r,h$ plane.}
+\label{fig:rh}
 \end{figure}
+Figure~\ref{fig:rh} shows the position of the polynomials roots in the $r,h$-plane. The plot is called a stability diagram.
 
+\subsection{Step-size Experiment}
 \begin{figure}
-\includegraphics[scale = 1]{./plots/lastExercise.pdf}
-\caption{Solution branch of $h \in [-0.0025,-0.0005].$ With \texttt{ opt=contset(opt,'MinStepsize',0.001);
- opt=contset(opt,'MaxStepsize',0.01); 
+\input{./plots/lastex2.tex}
+\input{./plots/lastex.tex}
+\caption{Solution branch of $h = -0.0025 \wedge -0.0005.$ With \texttt{ opt=contset(opt,'MinStepsize',0.01);
+ opt=contset(opt,'MaxStepsize',0.1); 
  opt=contset(opt,'MaxNewtonIters',4);}}
+\label{fig:lastEx}
 \end{figure}
-
+Figure \ref{fig:lastEx} shows computations results for two h values close to zero with the same \texttt{matcont parameters}. The second figure is presumably a correct computation as the results agree with those found in figure~\ref{fig:tree} and~\ref{fig:matcontNeg}. The top plot is not correct. Instead of making the correct left turn the solution continues incorrectly onto the upper branch. This problem can be fixed by choosing a smaller step size and a higher point maximum. Incorrect solutions appear if input and stepsize differ too much in magnitude. Furthermore computations fails if the to little newton iterations are done if the upper limit for the computation points is set too low.
 
 
 \end{document}
