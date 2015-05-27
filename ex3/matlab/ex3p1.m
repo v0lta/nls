@@ -6,8 +6,8 @@ clear
 %step = 0.0001
 
 %big values
-setArray = 30; %<--has to be pos!
-setParam = 0;
+setArray = 5; %<--has to be pos!
+setParam = 2;
 step = 0.5;
 
 
@@ -17,7 +17,7 @@ maxR = setArray;
 h = setParam;
 
 figure(1)
-x = linspace(-setParam,setParam,100);
+x = linspace(-setParam+0.1,setParam+0.1,100);
 for r = linspace(-maxR,maxR,10)
     y = -x.^3 + r.*x;
     plot(x,y);
@@ -33,12 +33,14 @@ rootVec = roots(coeff)
 %% ------------------------plotting r with const parameter h---------------
 figure(2)
 h = setParam;
+
 for r = -maxR:step:maxR
     coeff = [-1 0 r h];
     rootVec = roots(coeff);
     for i = 1:length(rootVec)
         if isreal(rootVec(i))
             plot(r,rootVec(i),'b.')
+            
         end
     end
     hold on;
@@ -66,5 +68,30 @@ end
 xlabel('h')
 ylabel('roots(u)')
 hold off;
+
+%% ------------------------plotting 3d rhx plot--------------------------- 
+figure(4)
+r = -maxR:step:maxR;
+h = -maxh:step:maxh;
+rootMat = zeros(length(r),length(h),3);
+lengthMat = zeros(length(r),length(h));
+
+for i = 1:length(r)
+    for j = 1:length(h)
+        coeff = [-1 0 r(i) h(j)];
+        rootVec = roots(coeff);
+        for k = 1:length(rootVec)
+                    if isreal(rootVec(k))
+                        rootMat(i,j,k) = real(rootVec(k)); 
+                        plot3(r(i),h(j),rootVec(k),'*');
+                        hold on;
+                    end
+                
+        end
+        lengthMat(i,j) = norm(rootVec(k));
+    end
+end
+
+
 
 
