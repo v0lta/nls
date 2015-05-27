@@ -30,12 +30,17 @@ opt=contset;
 % ---------------------------------------------------
 % PROGRAM AREA
 % OPTIONS: details about options see p. 18-20
-  opt=contset(opt,'MaxNumPoints',50); 
+  opt=contset(opt,'MaxNumPoints',350); 
   opt=contset(opt,'Singularities',1);
   opt=contset(opt,'Eigenvalues',1);
+ % new stuff p. 19 http://www.matcont.ugent.be/manual.pdf
+ opt=contset(opt,'MinStepsize',0.001);
+ opt=contset(opt,'MaxStepsize',0.01); 
+ opt=contset(opt,'MaxNewtonIters',4);
+ 
 % Set initial parameter values p ==> p = [r;h]
-  r  = -0.1;     % Note: r is fixed to this value
-  h  = 0.1;    % Note: h is the (active) parameter
+  r  = 0.1;     % Note: r is fixed to this value
+  h  = -0.0025;    % Note: h is the (active) parameter
   u0 = -1.5;     % find fixed point
   p0 = [r;h]; % r and h are set by the user
   ap = 2;     % Note: index of continuation parameter = 2
@@ -94,6 +99,8 @@ opt=contset;
     xlabel('h');ylabel('u')
     title(['r = ' num2str(r)])
     grid on
+    %last exercise
+    axis([-0.025 -0.0005 -0.6 0.5])
 
     % The code below has been tested for r=1 only!
     % For other values of r ( r<=0 or r>0) the code below might not work. 

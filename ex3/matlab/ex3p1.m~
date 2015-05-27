@@ -7,8 +7,8 @@ clear
 
 %big values
 setArray = 5; %<--has to be pos!
-setParam = -2;
-step = 0.3;
+setParam = 2;
+step = 0.5;
 
 
 %% ----------------------- find the zeros ---------------------------------
@@ -71,7 +71,7 @@ hold off;
 
 %% ------------------------plotting 3d rhx plot--------------------------- 
 figure(4)
-step = step/2;
+step = st
 r = -maxR:step:maxR;
 h = -maxh:step:maxh;
 rootMat = zeros(length(r),length(h),3);

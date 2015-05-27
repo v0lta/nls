@@ -44,6 +44,8 @@ At the extreme points the derivative is zero, which leads to $u_{max} = \sqrt{\f
 \input{./plots/zerosHloopRneg.tex}
 \caption{Solution branches with the function $-\frac{1}{2} u^3 + ru $ numerous colors for different $r\in [-30,30]$ and the constant function $h=-5$ in red (left). Root locus plot for the same $r$ values (right).}
 \label{fig:tree}
+\includegraphics[scale = 0.5]{./plots/zerosrhu.pdf}
+\caption{$r,h,u$ plot of the polynomial roots.}
 \end{figure}
 
 \newpage
@@ -62,6 +64,14 @@ At the extreme points the derivative is zero, which leads to $u_{max} = \sqrt{\f
 \begin{figure}
 \input{./plots/matcontrh.tex}
 \end{figure}
+
+\begin{figure}
+\includegraphics[scale = 1]{./plots/lastExercise.pdf}
+\caption{Solution branch of $h \in [-0.0025,-0.0005].$ With \texttt{ opt=contset(opt,'MinStepsize',0.001);
+ opt=contset(opt,'MaxStepsize',0.01); 
+ opt=contset(opt,'MaxNewtonIters',4);}}
+\end{figure}
+
 
 
 \end{document}
