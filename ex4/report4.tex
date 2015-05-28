@@ -119,10 +119,23 @@ c(c+a-2c) & - bc \\
 \end{pmatrix})
 \end{equation}
 With the determinant and trace $\tau_2 = c(1+a-2c) \wedge \triangle_2 = c(c-a)(1-c)$. From these two expressions it is possible to deduce, that if $c>0$, $\mathbf{x_2^*}$ is a saddle point if additionally, $c > a \wedge c < 1$. If that is not the case then the determinant is positive, now the trace determines stability. $\tau_2 < 0$ is the case if $\frac{1+a}{2} < c$. However it $c < 0$ then the determinant will always be negative, making $\mathbf{x_2^*}$ a saddle point.
+If the third fixed point is plugged into the Jacobian-matrix it changes to:
+\begin{equation}
+J(\mathbf{x_3^*}) = \begin{pmatrix}
+-1 + a & -b \\
+0 & 1-c 
+\end{pmatrix}
+\end{equation}
+This matrix has the trace $\tau_3 = -c + a$ and the determinant $\triangle_3 = (a - 1)(1 - c) = a - ac -1 +c.$ Therefore the determinant if positive if $c > 1$ assuming that $(1-a) > 0$, which is known to be true since $a = 0.4$. If the determinant is positive the node is stable if $tau_3 < 0 \Rightarrow a < c.$ The node has spirals is $\tau^2 - 4\triangle < 0$. TODO:PLOT!
 
-
-
-
+All that remains is the Jacobian of the fourth fixed point:
+\begin{equation}
+J(\mathbf{x_4^*}) = \begin{pmatrix}
+-a ^2 + a - bc & -ba \\
+0 & a-c 
+\end{pmatrix} 
+\end{equation}
+$\tau_4 = a^2 + 2a -bc -c$, $\triangle_4 = (-a ^2 + a - bc)(a-c) = -a^3 + a^2 - abc + ca^2 + ca + bc^2$. 
 
 
 
