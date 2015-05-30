@@ -110,13 +110,13 @@ J(\mathbf{x}_1^*) = \begin{pmatrix}
 -a & 0 \\
 0  & -c \end{pmatrix}.
 \end{equation}
-Therefore the trace and determinant are $\tau_1 = -a-c \wedge \triangle_1 = ac$. Thus this node is a saddle point if $c < 0$, if $c > 0$ it is stable if $-a < c$ and spirals if $a < c$.
+Therefore the trace and determinant are $\tau_1 = -a-c \wedge \triangle_1 = ac$. Thus this node is a saddle point if $c < 0$, if $c > 0$ it is stable if $-a < c$. The spiral condition $\tau_1 - 4\triangle = (a-c)^2 < 0$, therefore this point should never spiral.
 The second fixed point $\mathbf{x}_2^*$ has the Jacobian:
 \begin{equation}
 J(\mathbf{x_2^*}) = \begin{pmatrix}
 c(c+a-2c) & - bc \\
 (c-a)(1-c)/b &	0
-\end{pmatrix})
+\end{pmatrix}
 \end{equation}
 With the determinant and trace $\tau_2 = c(1+a-2c) \wedge \triangle_2 = c(c-a)(1-c)$. From these two expressions it is possible to deduce, that if $c>0$, $\mathbf{x_2^*}$ is a saddle point if additionally, $c > a \wedge c < 1$. If that is not the case then the determinant is positive, now the trace determines stability. $\tau_2 < 0$ is the case if $\frac{1+a}{2} < c$. However it $c < 0$ then the determinant will always be negative, making $\mathbf{x_2^*}$ a saddle point.
 If the third fixed point is plugged into the Jacobian-matrix it changes to:
@@ -126,8 +126,8 @@ J(\mathbf{x_3^*}) = \begin{pmatrix}
 0 & 1-c 
 \end{pmatrix}
 \end{equation}
-This matrix has the trace $\tau_3 = -c + a$ and the determinant $\triangle_3 = (a - 1)(1 - c) = a - ac -1 +c.$ Therefore the determinant if positive if $c > 1$ assuming that $(1-a) > 0$, which is known to be true since $a = 0.4$. If the determinant is positive the node is stable if $\tau_3 < 0 \Rightarrow a < c.$ The node has spirals is $\tau^2 - 4\triangle < 0$. TODO:PLOT!
-
+This matrix has the trace $\tau_3 = -c + a$ and the determinant $\triangle_3 = (a - 1)(1 - c) = a - ac -1 +c.$ Therefore the determinant if positive if $c > 1$ assuming that $(1-a) > 0$, which is known to be true since $a = 0.4$. If the determinant is positive the node is stable if $\tau_3 < 0 \Rightarrow a < c.$ The node has spirals is $\tau^2 - 4\triangle < 0$.
+<
 All that remains is the Jacobian of the fourth fixed point:
 \begin{equation}
 J(\mathbf{x_4^*}) = \begin{pmatrix}
@@ -147,12 +147,27 @@ $\tau_4 = a^2 + 2a -c$, $\triangle_4 = (-a ^2 + a)(a-c)= -a^3 + a^2c + a^2 - ac$
 \input{./plots/fpTraceNDetNC3D.tex}
 \caption{Jacobian trace and determinant for the four fixed points for increasing c. Values associated with $\mathbf{x}_1^*$ are marked with an x and shown in blue. Plots connected to $\mathbf{x}_2^*$ are marked with stars and graphed in orange. Representations of the trace and determinant of $\mathbf{x}_3^*$ have squares on each line and are colored in yellow. Finally values connected to $\mathbf{x}_4^*$ are marked with a diamonds and a drawn in purple.}
 \end{figure}
+\begin{figure}
+\centering
+\input{./plots/fpCNSpiral.tex}
+\caption{Plot of the spiral condition for all four fixed points.}
+\end{figure}
 
 \begin{table}
-%\begin{tabular}{|c|c|c|c|}
-%content...
-%\end{tabular}
-\caption{Fixed point stability}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+				 &	$c \in [0,0.4] $ & $c \in [0.4,0.45] $ & $c \in [0.45,0.7] $ & $c \in [0.7,1]$ & $c \in [0.9,1]$ & $c \in [1,1.5] $  \\
+\hline
+$\mathbf{x}_1^*$ &	stable node		 &	stable node		   &	stable node 	 &	 stable node   & stable node  & stable node  	\\
+\hline
+$\mathbf{x}_2^*$ &	saddle point	 &	unstable node	   &	unstable spiral	 & stable spiral   & stable node  &	saddle point   \\
+\hline
+$\mathbf{x}_3^*$ &	saddle point	 & saddle point		   &    saddle point	 &	saddle point   & saddle point & stable node		\\
+\hline
+$\mathbf{x}_4^*$ &	unstable node	 &	saddle point	   &	saddle point	 & saddle point	   & saddle point & saddle point   \\
+\hline
+\end{tabular}
+\caption{Fixed point classification for various intervals of $c$}
 \end{table}
 
 
