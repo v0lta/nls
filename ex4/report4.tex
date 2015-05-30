@@ -126,22 +126,34 @@ J(\mathbf{x_3^*}) = \begin{pmatrix}
 0 & 1-c 
 \end{pmatrix}
 \end{equation}
-This matrix has the trace $\tau_3 = -c + a$ and the determinant $\triangle_3 = (a - 1)(1 - c) = a - ac -1 +c.$ Therefore the determinant if positive if $c > 1$ assuming that $(1-a) > 0$, which is known to be true since $a = 0.4$. If the determinant is positive the node is stable if $tau_3 < 0 \Rightarrow a < c.$ The node has spirals is $\tau^2 - 4\triangle < 0$. TODO:PLOT!
+This matrix has the trace $\tau_3 = -c + a$ and the determinant $\triangle_3 = (a - 1)(1 - c) = a - ac -1 +c.$ Therefore the determinant if positive if $c > 1$ assuming that $(1-a) > 0$, which is known to be true since $a = 0.4$. If the determinant is positive the node is stable if $\tau_3 < 0 \Rightarrow a < c.$ The node has spirals is $\tau^2 - 4\triangle < 0$. TODO:PLOT!
 
 All that remains is the Jacobian of the fourth fixed point:
 \begin{equation}
 J(\mathbf{x_4^*}) = \begin{pmatrix}
--a ^2 + a - bc & -ba \\
+-a ^2 + a & -ba \\
 0 & a-c 
 \end{pmatrix} 
 \end{equation}
-$\tau_4 = a^2 + 2a -bc -c$, $\triangle_4 = (-a ^2 + a - bc)(a-c) = -a^3 + a^2 - abc + ca^2 + ca + bc^2$. 
+$\tau_4 = a^2 + 2a -c$, $\triangle_4 = (-a ^2 + a)(a-c)= -a^3 + a^2c + a^2 - ac$. 
 
+\begin{figure}
+\centering
+\input{./plots/fpPos.tex}
+\caption{Fixed point position for varying c. The constant position of $\mathbf{x}_1^*$ is marked with an \texttt{x} at $0,0$. The variable position of $\mathbf{x}_2^*$ is marked with a series of stars. Finally $\mathbf{x}_3^*$ and $\mathbf{x}_4^*$ are always at $0.4,0$ and $1,0$ marked with a square and a diamond.}
+\input{./plots/fpCNTau.tex}
+\input{./plots/fpCNDet.tex}
+\input{./plots/fpTraceNDet.tex}
+\input{./plots/fpTraceNDetNC3D.tex}
+\caption{Jacobian trace and determinant for the four fixed points for increasing c. Values associated with $\mathbf{x}_1^*$ are marked with an x and shown in blue. Plots connected to $\mathbf{x}_2^*$ are marked with stars and graphed in orange. Representations of the trace and determinant of $\mathbf{x}_3^*$ have squares on each line and are colored in yellow. Finally values connected to $\mathbf{x}_4^*$ are marked with a diamonds and a drawn in purple.}
+\end{figure}
 
-
-
-
-
+\begin{table}
+%\begin{tabular}{|c|c|c|c|}
+%content...
+%\end{tabular}
+\caption{Fixed point stability}
+\end{table}
 
 
 
