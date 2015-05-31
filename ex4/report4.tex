@@ -175,17 +175,58 @@ $\mathbf{x}_4^*$ &	unstable node	 &	saddle point	   &	saddle point	 & saddle poi
 \end{table}
 
 \subsubsection{Topological analysis}
-In this section the topology of the first interval $c \in [0,0.4]$ will be deduced from the eigenvalues and eigenvectors. For $\mathbf{x}_1^*$ reading off from \ref{eq:Jx1} the eigenvalues are found to be $\lambda_{1,1} =  -a$, $\lambda_{1,2} =  -c$, with the eigenvectors $\mathbf{v}_{1,1} = \begin{pmatrix} 1 & 0 \end{pmatrix}^T$, $\mathbf{v}_{1,2} = \begin{pmatrix} 0 & 1 \end{pmatrix}^T$.
+In this section the topology of the first interval $c \in [0,0.4]$ will be deduced from the eigenvalues and eigenvectors. For $\mathbf{x}_1^*$ reading off from \ref{eq:Jx1} the eigenvalues are found to be:
+\begin{align}
+ \lambda_{1,1} &=  -a \\
+ \lambda_{1,2} &=  -c
+\end{align}
+with the eigenvectors:
+\begin{align}
+\mathbf{v}_{1,1} = \begin{pmatrix} 1 & 0 \end{pmatrix}^T \\
+\mathbf{v}_{1,2} = \begin{pmatrix} 0 & 1 \end{pmatrix}^T
+\end{align}
+Thus around the stable node $(1,1)$ all trajectories are drawn towards this stable node.
 
-For $\mathbf{x}_2^*$ no general expressions could be found from~\ref{eq:Jx2}, the ones given are for $c = 0.2, a = 0.4$ and $b = 0.3$. 
-$\lambda_{2,1} = 0.305$, $\lambda_{2,2} = -1.04$,  $ \mathbf{v}_{2,1} = \begin{pmatrix} -0.571 & 1 \end{pmatrix}^T$, $ \mathbf{v}_{2,2} = \begin{pmatrix} 0.1967 & 1 \end{pmatrix}^T$.
+For $\mathbf{x}_2^*$ no general expressions could be found from~\ref{eq:Jx2}, the ones given are for $c = 0.2, a = 0.4$ and $b = 0.3$:
+\begin{align}
+\lambda_{2,1} &= 0.305\\
+\lambda_{2,2} &= -1.04 \\
+\mathbf{v}_{2,1} &= \begin{pmatrix} -0.571 & 1 \end{pmatrix}^T \\
+\mathbf{v}_{2,2} &= \begin{pmatrix} 0.1967 & 1 \end{pmatrix}^T.
+\end{align}
+We have an unstable eigenvalue, therefore from this node the trajectories will leave along $\pm \mathbf{v}_{2,1}$ towards zero and infinity. While $\pm \mathbf{v}_{2,2}$ guides orbits toward the node. 
 
-For $\mathbf{x}_3^*$ the eignevalues of the Jacobian~\ref{eq:Jx3} may be read of the diagonal: $\lambda_{3,1} = a+1$, $\lambda_{3,2} = 1-c$. With the eigenvalues known the eigenvectors may be  computed, they turn out to be: $ \mathbf{v}_{3,1} = \begin{pmatrix} 1 & 0 \end{pmatrix}$, $\mathbf{v}_{3,2} = \begin{pmatrix} 1 & -\frac{a+c}{b} \end{pmatrix}$.
+For $\mathbf{x}_3^*$ the eignevalues of the Jacobian~\ref{eq:Jx3} may be read of the diagonal:
+\begin{align}
+\lambda_{3,1} &= -1+a \\
+\lambda_{3,2} &= 1-c. 
+\end{align}
+With the eigenvalues known the eigenvectors may be  computed, they turn out to be:
+\begin{align}
+ \mathbf{v}_{3,1} = \begin{pmatrix} 1 & 0 \end{pmatrix}^T \\
+\mathbf{v}_{3,2} = \begin{pmatrix}  \frac{b}{-2+a+c} & 1 \end{pmatrix}^T.
+\end{align}
+When $a,b,c$ are replaced with their numerical values this leads to $\lambda_{3,1} = -0.6, \text{ and } \lambda_{3,2} = 0.8 $. Similarly for the eigenvectors, $\mathbf{v}_{3,1} = \begin{pmatrix} 1 & 0 \end{pmatrix}^T,
+\mathbf{v}_{3,2} = \begin{pmatrix} -2.1428& 1 \end{pmatrix}^T$ is obtained. 
 
-Finally for $\mathbf{x}_4^*$ is very similar from~\ref{eq:Jx4}, $\lambda_{4,1} = -a^2 + a$ and $\lambda_{4,2} = a-c$ are the read off eigenvalues, thus the eigenvectors are $ \mathbf{v}_{4,1} = \begin{pmatrix} 1 & 0 \end{pmatrix}^T$, $ \mathbf{v}_{4,2} = \begin{pmatrix} 1 & \frac{-a^2+c}{ba} \end{pmatrix}^T$
+Finally for $\mathbf{x}_4^*$ is very similar from~\ref{eq:Jx4};
+\begin{align}
+\lambda_{4,1} &= -a^2 + a \\
+\lambda_{4,2} &= a-c,
+\end{align}
+are the read off eigenvalues, thus the eigenvectors are:
+\begin{align}
+ \mathbf{v}_{4,1} = \begin{pmatrix} 1 & 0 \end{pmatrix}^T \\
+ \mathbf{v}_{4,2} = \begin{pmatrix} \frac{-ab}{a^2-c} & 1 \end{pmatrix}^T
+\end{align}
+One last time the numerical values have to be fed into the expressions, this yields $\lambda_1 = 0.24$ and $\lambda_2 = 0.2$. And for the vectors, $ \mathbf{v}_{4,1} = \begin{pmatrix} 1 & 0 \end{pmatrix}^T,
+ \mathbf{v}_{4,2} = \begin{pmatrix} 3 & 1 \end{pmatrix}^T$. At this points numerical values for all eigenvalue, eigenvector pair are known. If the eigenvectors are added and subtracted from their corresponding fixed points location. The image shown in figure~\ref{fig:Top} is obtained. It is important to note that most eigenvectors have been scaled by either six or three to address scaling problems. The eigendirection has been deduced from the eigenvalues. $\lambda > 0$ means unstable $\lambda < 0$ means stable or attracting.
 
 \begin{figure}
+\centering
 \input{./plots/predPreyTop.tex}
+\caption{Prediction of the topology of the predator prey model for $c = 0.2$. Eigenvector based predictions are shown in black, others in blue.}
+\label{fig:Top}
 \end{figure}
 
 
