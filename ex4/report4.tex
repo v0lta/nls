@@ -109,14 +109,16 @@ Linear analysis proceeds by plugging the fixed points into the Jacobian and comp
 J(\mathbf{x}_1^*) = \begin{pmatrix}
 -a & 0 \\
 0  & -c \end{pmatrix}.
+\label{eq:Jx1}
 \end{equation}
 Therefore the trace and determinant are $\tau_1 = -a-c \wedge \triangle_1 = ac$. Thus this node is a saddle point if $c < 0$, if $c > 0$ it is stable if $-a < c$. The spiral condition $\tau_1 - 4\triangle = (a-c)^2 < 0$, therefore this point should never spiral.
 The second fixed point $\mathbf{x}_2^*$ has the Jacobian:
 \begin{equation}
 J(\mathbf{x_2^*}) = \begin{pmatrix}
-c(c+a-2c) & - bc \\
+c(1+a-2c) & - bc \\
 (c-a)(1-c)/b &	0
 \end{pmatrix}
+\label{eq:Jx2}
 \end{equation}
 With the determinant and trace $\tau_2 = c(1+a-2c) \wedge \triangle_2 = c(c-a)(1-c)$. From these two expressions it is possible to deduce, that if $c>0$, $\mathbf{x_2^*}$ is a saddle point if additionally, $c > a \wedge c < 1$. If that is not the case then the determinant is positive, now the trace determines stability. $\tau_2 < 0$ is the case if $\frac{1+a}{2} < c$. However it $c < 0$ then the determinant will always be negative, making $\mathbf{x_2^*}$ a saddle point.
 If the third fixed point is plugged into the Jacobian-matrix it changes to:
@@ -125,6 +127,7 @@ J(\mathbf{x_3^*}) = \begin{pmatrix}
 -1 + a & -b \\
 0 & 1-c 
 \end{pmatrix}
+\label{eq:Jx3}
 \end{equation}
 This matrix has the trace $\tau_3 = -c + a$ and the determinant $\triangle_3 = (a - 1)(1 - c) = a - ac -1 +c.$ Therefore the determinant if positive if $c > 1$ assuming that $(1-a) > 0$, which is known to be true since $a = 0.4$. If the determinant is positive the node is stable if $\tau_3 < 0 \Rightarrow a < c.$ The node has spirals is $\tau^2 - 4\triangle < 0$.
 <
@@ -133,7 +136,8 @@ All that remains is the Jacobian of the fourth fixed point:
 J(\mathbf{x_4^*}) = \begin{pmatrix}
 -a ^2 + a & -ba \\
 0 & a-c 
-\end{pmatrix} 
+\end{pmatrix}
+\label{eq:Jx4}
 \end{equation}
 $\tau_4 = a^2 + 2a -c$, $\triangle_4 = (-a ^2 + a)(a-c)= -a^3 + a^2c + a^2 - ac$. 
 
@@ -150,7 +154,7 @@ $\tau_4 = a^2 + 2a -c$, $\triangle_4 = (-a ^2 + a)(a-c)= -a^3 + a^2c + a^2 - ac$
 \begin{figure}
 \centering
 \input{./plots/fpCNSpiral.tex}
-\caption{Plot of the spiral condition for all four fixed points.}
+\caption{Plot of the spiral condition for all four fixed points. If $\tau^2 - 4\triangle < 0$ a node turns into a spiral.}
 \end{figure}
 
 \begin{table}
@@ -170,7 +174,19 @@ $\mathbf{x}_4^*$ &	unstable node	 &	saddle point	   &	saddle point	 & saddle poi
 \caption{Fixed point classification for various intervals of $c$}
 \end{table}
 
+\subsubsection{Topological analysis}
+In this section the topology of the first interval $c \in [0,0.4]$ will be deduced from the eigenvalues and eigenvectors. For $\mathbf{x}_1^*$ reading off from \ref{eq:Jx1} the eigenvalues are found to be $\lambda_{1,1} =  -a$, $\lambda_{1,2} =  -c$, with the eigenvectors $\mathbf{v}_{1,1} = \begin{pmatrix} 1 & 0 \end{pmatrix}^T$, $\mathbf{v}_{1,2} = \begin{pmatrix} 0 & 1 \end{pmatrix}^T$.
 
+For $\mathbf{x}_2^*$ no general expressions could be found from~\ref{eq:Jx2}, the ones given are for $c = 0.2, a = 0.4$ and $b = 0.3$. 
+$\lambda_{2,1} = 0.305$, $\lambda_{2,2} = -1.04$,  $ \mathbf{v}_{2,1} = \begin{pmatrix} -0.571 & 1 \end{pmatrix}^T$, $ \mathbf{v}_{2,2} = \begin{pmatrix} 0.1967 & 1 \end{pmatrix}^T$.
+
+For $\mathbf{x}_3^*$ the eignevalues of the Jacobian~\ref{eq:Jx3} may be read of the diagonal: $\lambda_{3,1} = a+1$, $\lambda_{3,2} = 1-c$. With the eigenvalues known the eigenvectors may be  computed, they turn out to be: $ \mathbf{v}_{3,1} = \begin{pmatrix} 1 & 0 \end{pmatrix}$, $\mathbf{v}_{3,2} = \begin{pmatrix} 1 & -\frac{a+c}{b} \end{pmatrix}$.
+
+Finally for $\mathbf{x}_4^*$ is very similar from~\ref{eq:Jx4}, $\lambda_{4,1} = -a^2 + a$ and $\lambda_{4,2} = a-c$ are the read off eigenvalues, thus the eigenvectors are $ \mathbf{v}_{4,1} = \begin{pmatrix} 1 & 0 \end{pmatrix}^T$, $ \mathbf{v}_{4,2} = \begin{pmatrix} 1 & \frac{-a^2+c}{ba} \end{pmatrix}^T$
+
+\begin{figure}
+\input{./plots/predPreyTop.tex}
+\end{figure}
 
 
 
