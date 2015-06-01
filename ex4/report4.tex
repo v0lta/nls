@@ -145,6 +145,7 @@ $\tau_4 = a^2 + 2a -c$, $\triangle_4 = (-a ^2 + a)(a-c)= -a^3 + a^2c + a^2 - ac$
 \centering
 \input{./plots/fpPos.tex}
 \caption{Fixed point position for varying c. The constant position of $\mathbf{x}_1^*$ is marked with an \texttt{x} at $0,0$. The variable position of $\mathbf{x}_2^*$ is marked with a series of stars. Finally $\mathbf{x}_3^*$ and $\mathbf{x}_4^*$ are always at $0.4,0$ and $1,0$ marked with a square and a diamond.}
+\label{fig:fixedPos}
 \input{./plots/fpCNTau.tex}
 \input{./plots/fpCNDet.tex}
 \input{./plots/fpTraceNDet.tex}
@@ -172,6 +173,7 @@ $\mathbf{x}_4^*$ &	unstable node	 &	saddle point	   &	saddle point	 & saddle poi
 \hline
 \end{tabular}
 \caption{Fixed point classification for various intervals of $c$}
+\label{tab:class}
 \end{table}
 
 \subsubsection{Topological analysis}
@@ -213,11 +215,13 @@ Finally for $\mathbf{x}_4^*$ is very similar from~\ref{eq:Jx4};
 \begin{align}
 \lambda_{4,1} &= -a^2 + a \\
 \lambda_{4,2} &= a-c,
+\label{eq:eig4}
 \end{align}
 are the read off eigenvalues, thus the eigenvectors are:
 \begin{align}
  \mathbf{v}_{4,1} = \begin{pmatrix} 1 & 0 \end{pmatrix}^T \\
  \mathbf{v}_{4,2} = \begin{pmatrix} \frac{-ab}{a^2-c} & 1 \end{pmatrix}^T
+ \label{eq:vec4}
 \end{align}
 One last time the numerical values have to be fed into the expressions, this yields $\lambda_1 = 0.24$ and $\lambda_2 = 0.2$. And for the vectors, $ \mathbf{v}_{4,1} = \begin{pmatrix} 1 & 0 \end{pmatrix}^T,
  \mathbf{v}_{4,2} = \begin{pmatrix} 3 & 1 \end{pmatrix}^T$. At this point numerical values for all eigenvalue, eigenvector pairs are known. If the eigenvectors are added and subtracted from their corresponding fixed points location. The image shown in figure~\ref{fig:Top} is obtained. It is important to note that most eigenvectors have been scaled by either six or three to address scaling problems. The eigendirection has been deduced from the eigenvalues. $\lambda > 0$ means unstable $\lambda < 0$ means stable or attracting.
@@ -225,10 +229,41 @@ One last time the numerical values have to be fed into the expressions, this yie
 \begin{figure}
 \centering
 \input{./plots/predPreyTop.tex}
-\caption{Prediction of the topology of the predator prey model for $c = 0.2$. Eigenvector based predictions are shown in black, others in blue.}
+\input{./plots/pplaneC0p2.tex}
+\caption{Prediction of the topology of the predator prey model for $c = 0.2$. Eigenvector based predictions are shown in black, others in blue (left). Numerical simulation results using \texttt{pplane} for the same set of parameters (right).}
 \label{fig:Top}
 \end{figure}
 
+\subsection{Numerical Analysis}
+In order to fully graph the topology the topological analysis outlined above for $c = 0.2$ would have to be repeated five times. As this is a very tedious and error prone endeavor pplane will be used instead. Results are shown in figure~\ref{fig:NumTop}. A quick comparison with table~\ref{tab:class} and figure~\ref{fig:fixedPos} confirms the predictions made earlier. When $c$ is chosen greater then $0.7$, two attracting nodes will exist. Which raises the question, which areas of the phase plane will be attracted to which attractor. The separatrices which separate these areas are the answer to this question. These lines are trajectories, that run along the border of the basins of attraction of two different attractors separating them. Typically these trajectories end at a saddle point \footnote{Strogatz p.158}. For $c > 0.7$ $\mathbf{x}_4^*$ remains a saddle point at all times. Furthermore it lies between the stable nodes, for which the basin of attraction is to be determined. The stable eigenvectors of $\mathbf{x}_4^*$ are thus likely to point along the separatrices. $\mathbf{x}_4^*$ is located at:
+\begin{equation}
+\mathbf{x}_4^* = \begin{pmatrix} a \\ 0
+\end{pmatrix} = \begin{pmatrix} 0.4 \\ 0
+\end{pmatrix}
+\end{equation}
+From equations~\ref{eq:eig4} and \ref{eq:vec4} the stable eigenvector is determined to be:
+\begin{equation}
+\mathbf{v}_{4,2} = \begin{pmatrix}
+\frac{-ab}{a^2-c} \\ 1
+\end{pmatrix} 
+= \begin{pmatrix}
+0.1875 \\ 1
+\end{pmatrix} 
+\end{equation}
+Thus one would expect a separatrice that is pointing upwards ($y = 1$) and slightly to the right ($x = 0.1875$), which is the case for the highlighted one in figure~\ref{fig:NumTop}. 
+
+
+\begin{figure}
+\centering
+\input{./plots/pplaneC0p2.tex}
+\input{./plots/pplaneC0p425.tex}
+\input{./plots/pplaneC0p6.tex}
+\input{./plots/pplaneC0p8.tex}
+\input{./plots/pplaneC0p95.tex}
+\input{./plots/pplaneC1p25.tex}
+\caption{Phase plane topology found by \texttt{pplane} for $c = 0.2, 0.425, 0.6, 0.8, 0.95, 1.25$. In the plot for $c = 0.8$ the separatrices have been drawn in red.}
+\label{fig:NumTop}
+\end{figure}
 
 
 \end{document}
