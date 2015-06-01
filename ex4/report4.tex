@@ -161,7 +161,7 @@ $\tau_4 = a^2 + 2a -c$, $\triangle_4 = (-a ^2 + a)(a-c)= -a^3 + a^2c + a^2 - ac$
 \begin{table}
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
-				 &	$c \in [0,0.4] $ & $c \in [0.4,0.45] $ & $c \in [0.45,0.7] $ & $c \in [0.7,1]$ & $c \in [0.9,1]$ & $c \in [1,1.5] $  \\
+				 &	$c \in [0,0.4] $ & $c \in [0.4,0.45] $ & $c \in [0.45,0.7] $ & $c \in [0.7,0.9]$ & $c \in [0.9,1]$ & $c \in [1,1.5] $  \\
 \hline
 $\mathbf{x}_1^*$ &	stable node		 &	stable node		   &	stable node 	 &	 stable node   & stable node  & stable node  	\\
 \hline
@@ -250,20 +250,53 @@ From equations~\ref{eq:eig4} and \ref{eq:vec4} the stable eigenvector is determi
 0.1875 \\ 1
 \end{pmatrix} 
 \end{equation}
-Thus one would expect a separatrice that is pointing upwards ($y = 1$) and slightly to the right ($x = 0.1875$), which is the case for the highlighted one in figure~\ref{fig:NumTop}. 
+\begin{figure}
+\centering
+%\input{./plots/zoomX4.tex}
+\includegraphics{./plots/zoomX4.pdf}
+\caption{Idealized depiction of the separatrices at $\mathbf{x}_4^*$}
+\label{fig:zX4}
+\end{figure}
+Thus one would expect a separatrice that is pointing upwards ($y = 1$) and slightly to the right ($x = 0.1875$). If the eigenvector found above is added and subtracted from $\mathbf{x}_4^*$ figure~\ref{fig:zX4} is obtained. Here the stable and unstable manifolds meet. The situation depicted comes form the one for $c = 0.8$ in figure~\ref{fig:NumTop} here only the top separatrices is drawn in red, however the idealization drawn earlier turns out to be true around $\mathbf{x}_4^*$.
+
+\begin{figure}
+\centering
+\input{./plots/pplaneC0p425.tex}
+\input{./plots/pplaneC0p6.tex}
+\input{./plots/pplaneC0p6.tex}
+\input{./plots/pplaneC0p7.tex}
+\input{./plots/pplaneC0p8.tex}
+\input{./plots/pplaneC0p95.tex}
+%\input{./plots/pplaneC1p25.tex}
+\caption{Phase plane topology found by \texttt{pplane} for $c = 0.425, 0.6, 0.7, 0.8, 0.95$. In the plot for $c = 0.8$ the separatrices have been drawn in red.}
+\label{fig:NumTop}
+\end{figure}
+
+\section{Bifurcation Analysis}
+\begin{figure}
+\centering
+\input{./plots/x2EigReal.tex}
+\input{./plots/x2EigCmplx.tex}
+\caption{Evolution of real and complex part of \texttt{eig}($J(\mathbf{x}_2^*)$)}
+\label{fig:eigsJx2}
+\end{figure}
+
+Figure~\ref{fig:eigsJx2} shows the evolution of the real and imaginary part of $J(\mathbf{x}_2^*)$'s two eigenvalues. Originally both eigenvalues are real with one being positive and one negative. Therefore $\mathbf{x}_2^*$ is initially a saddle point. The situation changes when the second eigenvalues becomes positive. The node now turns into an unstable one. When the eigenvalues' imaginary parts start to have nonzero values spiraling will start to occur. With the spirals stability determined by the real parts. At $0.7$ the both real parts turn negative causing a reverse Hopf-bifurcation\footnote{Strogatz p.252} which ultimately results in stable spiral. When the eigenvalues turn real again at $0.9$ the spiraling stops and a stable node is created. Finally as the real parts take opposing signs $\mathbf{x}_2^*$ turns into a saddle point again, just like it was in the beginning.
+
+As $c$ increases from $0.65$ to $0.75$ , most importantly at $0.7$ the reverse Hopf-bifurcation occurs. For $c = 0.7$ initial conditions close the the fixed points $\mathbf{x}_2^*$ will keep oscillating almost undamped see figures~\ref{[fig:incC]} and~\ref{fig:NumTop} . The period of the solutions decreases, which can be observed in figure~\ref{fig:incC}. Perhaps not very surprisingly before the bifurcation both species die out as the node at $(0,0)$ is the only fixed point, that can be reached from positive initial conditions. At $c = 0.7$ the two animal races have at least the option of eternal oscillation instead of mutual extinction. Finally after the bifurcation all three initial conditions tried out here converge to the stable spiral at $\mathbf{x}_2^*$. However it is important that $\mathbf{x}_1^*$ at $(0,0)$ remains stable and is indeed approached from other initial conditions. 
+
 
 
 \begin{figure}
 \centering
-\input{./plots/pplaneC0p2.tex}
-\input{./plots/pplaneC0p425.tex}
-\input{./plots/pplaneC0p6.tex}
-\input{./plots/pplaneC0p8.tex}
-\input{./plots/pplaneC0p95.tex}
-\input{./plots/pplaneC1p25.tex}
-\caption{Phase plane topology found by \texttt{pplane} for $c = 0.2, 0.425, 0.6, 0.8, 0.95, 1.25$. In the plot for $c = 0.8$ the separatrices have been drawn in red.}
-\label{fig:NumTop}
+\input{./plots/c0.65oscillationsTime.tex}
+\input{./plots/c0.65oscillationsPlane.tex}
+\input{./plots/c0.7oscillationsTime.tex}
+\input{./plots/c0.7oscillationsPlane.tex}
+\input{./plots/c0.75oscillationsTime.tex}
+\input{./plots/c0.75oscillationsPlane.tex}
+\caption{System solutions for $c = 0.65, 0.7, 0.75$ in time and phase plane representation.}
+\label{[fig:incC]}
 \end{figure}
-
 
 \end{document}

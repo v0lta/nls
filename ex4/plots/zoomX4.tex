@@ -1,0 +1,34 @@
+\documentclass[tikz]{standalone}
+%\usetikzlibrary{...}% tikz package already loaded by 'tikz' option
+\usetikzlibrary{arrows}
+\begin{document}
+\usetikzlibrary{arrows,shapes,positioning}
+\usetikzlibrary{decorations.markings}
+\tikzstyle arrowstyle=[scale=1]
+\tikzstyle directed=[postaction={decorate,decoration={markings,
+    mark=at position .65 with {\arrow[arrowstyle]{stealth}}}}]
+\tikzstyle reverse directed=[postaction={decorate,decoration={markings,
+    mark=at position .65 with {\arrowreversed[arrowstyle]{stealth};}}}]
+\begin{tikzpicture}[
+    scale=5,
+    axis/.style={thick, ->, >=stealth'},
+    important line/.style={thick},
+    dashed line/.style={dashed, thin},
+    pile/.style={thick, ->, >=stealth', shorten <=2pt, shorten
+    >=2pt},
+    every node/.style={color=black}
+    ]     
+    
+    \node (x4) at (0.4,0) [shift={(-0.3,-0.25)}]{$\mathbf{x}_4^*$};
+    \draw[black,reverse directed] (0.6,0) -- (0.4,0);
+    \draw[black,reverse directed] (0.2,0) -- (0.4,0);
+    \draw[red,reverse directed] (0.4,0) -- (0.4625,0.333);
+    \draw[red,reverse directed] (0.4,0) -- (0.3375,-0.333);
+    \fill[white] (0.4,0) circle (.4pt);    
+    \draw (0.4,0) circle (.4pt);
+    
+    \node (t1) at (0.65,0.1) {basin for $\mathbf{x}_2^*$};   
+    \node (t2) at (0.2,0.2) {basin for $\mathbf{x}_1^*$};  
+    
+\end{tikzpicture}
+\end{document}
