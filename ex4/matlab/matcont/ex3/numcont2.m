@@ -37,63 +37,48 @@ global cds
 % Adjust   'MaxNumPoints' if necessary 
 
   opt=contset;
-  opt=contset(opt,'MaxNumPoints',40); 
+  opt=contset(opt,'MaxNumPoints',20); 
   opt=contset(opt,'Singularities',1);
   opt=contset(opt,'Eigenvalues',1);
   % my stuff.
-  %opt=contset(opt,'MinStepsize',0.01);
-  %opt=contset(opt,'MaxStepsize',0.1);
+  %opt=contset(opt,'MinStepsize',1);
+  %opt=contset(opt,'MaxStepsize',1);
   %watch the step stepsize ratio, parameter ratio.
   
   
   opt=contset(opt,'MaxNewtonIters',4);
 
-  c0 = 0.1; 
+  c = 0.1;
+  d = 0;
+  p0 = [c; d];
   ap = 1;      % Note: index of continuation parameter = 1
 % ---------------------------------------------------------
-figure(1);clf;hold on  
-% Compute first solution branch  
-  u0 = [0.1; -0.9]; % initial value for u    
-  % Initialisation Step
-    [x0,v0] = init_EP_EP(@myfuncont,u0,c0,ap);
-  % Compute Forward
-    opt=contset(opt,'Backward',0);
-    [x1,v1,s1,h1,f1] = cont(@equilibrium,x0,v0,opt);
-    cpl(x1,v1,s1,[1 2]);
-% Compute remaining solution branch          
-  u0 = [1; 0]; % initial value for u    
-  % Initialisation Step
-    [x0,v0] = init_EP_EP(@myfuncont,u0,c0,ap);
-  % Compute Backward
-    opt=contset(opt,'Backward',1);
-    [x2,v2,s2,h2,f2] = cont(@equilibrium,x0,v0,opt);
-    cpl(x2,v2,s2,[1 2]);
-    grid on
-    xlabel('c');ylabel('x')
-    %title(['c = ' num2str(c0)])
+% figure(1);clf;hold on  
+% % Compute first solution branch
+   u0 = [0.1; -0.9]; % initial value for u    
+%   %Initialisation Step
+     [x0,v0] = init_EP_EP(@myfuncont,u0,p0,ap);
+%   % Compute Forward
+     opt=contset(opt,'Backward',0);
+     [x1,v1,s1,h1,f1] = cont(@equilibrium,x0,v0,opt);
+     cpl(x1,v1,s1,[1 2]);
+%  % Compute second solution branch
+%    u0 = [0.4; 0]; % initial value for u    
+%    % Initialisation Step
+%      [x0,v0] = init_EP_EP(@myfuncont,u0,p0,ap);
+%    % Compute Backward?
+%      opt=contset(opt,'Backward',0);
+%      [x2,v2,s2,h2,f2] = cont(@equilibrium,x0,v0,opt);
+%      cpl(x2,v2,s2,[1 2]);
+% Compute third solution branch
+%    u0 = [1; 0]; % initial value for u    
+%    % Initialisation Step
+%      [x0,v0] = init_EP_EP(@myfuncont,u0,p0,ap);
+%   % Compute Backward?
+%     opt=contset(opt,'Backward',0);
+%     [x3,v3,s3,h3,f3] = cont(@equilibrium,x0,v0,opt);
+%     cpl(x3,v3,s3,[1 2]);
+     grid on
+%     xlabel('c');ylabel('x')
+     title(['d = ' num2str(d)])
 
-% POST PROCESSING AREA
-  x = [x1 x2]; % forward and backward results
-  f = [f1 f2]; % eigenvalues jacobian
-  u = x(1,:);  % fixed points
-  r = x(2,:);  % active parameter
-  
-  % Stability analysis plot
-  % Goal: Visualisation of stable and unstable branches
-  %  figure(2);clf;hold on
-  %  pos = find(sign(f) == 1);   
-  %  nul = find(sign(f) == 0);   
-  %  neg = find(sign(f) == -1);
-    
-  %  if ~isempty(pos)
-  %      plot(r(pos),u(pos),'r.','linewidth',2)
-  %  end
-  % if ~isempty(nul)
-  %      plot(r(nul),u(nul),'k.','linewidth',2)
-  %  end
-  %  if ~isempty(neg)
-  %      plot(r(neg),u(neg),'b.','linewidth',2)
-  %  end
-  % xlabel('r');ylabel('u')
-  % title(['c0 = ' num2str(c0)])
-  % grid on

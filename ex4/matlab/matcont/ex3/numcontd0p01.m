@@ -37,48 +37,59 @@ global cds
 % Adjust   'MaxNumPoints' if necessary 
 
   opt=contset;
-  opt=contset(opt,'MaxNumPoints',00); 
+  opt=contset(opt,'MaxNumPoints',400); 
   opt=contset(opt,'Singularities',1);
   opt=contset(opt,'Eigenvalues',1);
   % my stuff.
-  %opt=contset(opt,'MinStepsize',1);
-  %opt=contset(opt,'MaxStepsize',1);
+  opt=contset(opt,'MinStepsize',0.1);
+  opt=contset(opt,'MaxStepsize',0.01);
   %watch the step stepsize ratio, parameter ratio.
   
   
   opt=contset(opt,'MaxNewtonIters',4);
 
-  c = 0.1;
-  d = 0.01;
+  c = 0.7;
+  d = -0.01;
   p0 = [c; d];
-  ap = 2;      % Note: index of continuation parameter = 1
+  ap = 1;      % Note: index of continuation parameter = 1
+  plotVec = [2 3];
 % ---------------------------------------------------------
-figure(1);clf;hold on  
-% Compute first solution branch
-  u0 = [0.1; -0.9]; % initial value for u    
-  %Initialisation Step
-    [x0,v0] = init_EP_EP(@myfuncont,u0,p0,ap);
-  % Compute Forward
-    opt=contset(opt,'Backward',0);
-    [x1,v1,s1,h1,f1] = cont(@equilibrium,x0,v0,opt);
-    cpl(x1,v1,s1,[1 2]);
- % Compute second solution branch
-   u0 = [0.4; 0]; % initial value for u    
-   % Initialisation Step
-     [x0,v0] = init_EP_EP(@myfuncont,u0,p0,ap);
-   % Compute Backward?
+% figure(1);clf;hold on  
+% % Compute first solution branch
+   u0 = [0.7; 0.3]; % initial value for u    
+%   %Initialisation Step
+     [x0,c0] = init_EP_EP(@myfuncont,u0,p0,ap);
+%   % Compute Forward
      opt=contset(opt,'Backward',0);
-     [x2,v2,s2,h2,f2] = cont(@equilibrium,x0,v0,opt);
-     cpl(x2,v2,s2,[1 2]);
-% Compute third solution branch
-    u0 = [1; 0]; % initial value for u    
-%    % Initialisation Step
-      [x0,v0] = init_EP_EP(@myfuncont,u0,p0,ap);
-%   % Compute Backward?
-     opt=contset(opt,'Backward',0);
-     [x3,v3,s3,h3,f3] = cont(@equilibrium,x0,v0,opt);
-     cpl(x3,v3,s3,[1 2]);
-     grid on
-     xlabel('c');ylabel('x')
-     title(['d = ' num2str(d)])
-
+     [x1,v1,s1,h1,f1] = cont(@equilibrium,x0,c0,opt);
+     cpl(x1,v1,s1,plotVec);
+   u0 = [0.7; 0.3]; % initial value for u    
+%   %Initialisation Step
+     [x0,c0] = init_EP_EP(@myfuncont,u0,p0,ap);
+%   % Compute Forward
+    opt=contset(opt,'Backward',1);
+     [x1,v1,s1,h1,f1] = cont(@equilibrium,x0,c0,opt);
+     cpl(x1,v1,s1,plotVec); 
+     
+     
+% ntst = 5;  % number of mesh-intervals
+%              % this is an initial guess !!!!!!
+%              % increase this argument !
+% ncol = 4;  % number of collocation points     
+%      
+% xh = x1(1:2,s1(1).index);
+% ch = [x1(3,s1(1).index); d];
+% i  = s1(2).index;     
+% 
+% [x0,c0]=init_H_LC(@myfuncont,xh,ch,1,1e-4,ntst,ncol);
+% [x2,v2,s2,h2,f2]=cont(@limitcycle,x0,c0,opt);
+% 
+% figure(2);clf;
+% e = size(x2,1)-1;
+% plotcycle(x2([1:end-2 end],1:end),v2,s2,[e 1 2])
+% view(3)
+% xlabel('c')
+% ylabel('x')
+% zlabel('y')
+% grid on 
+%     

@@ -35,12 +35,16 @@ opt=contset(opt,'Eigenvalues',1);
 disp('Computations are running ...')
 disp('Please wait ...')
 time = cputime;
-c0  = 0.1;  % initial parameter value
+
+c = 0.1;
+d = 0;
+
+c0  = [c; d];  % initial parameter value
 [x0,v0]          = init_EP_EP(@funPred,[0.1;-0.9],c0,1);
 [x1,v1,s1,h1,f1] = cont(@equilibrium,x0,v0,opt);
 
 xh = x1(1:2,s1(3).index);
-ch = x1(3,s1(3).index);
+ch = [x1(3,s1(3).index); d];
 i  = s1(2).index;
 
 figure(4)

@@ -11,8 +11,8 @@
 \section{The equation}
 \begin{align}
 \dot{x} &= x(x-a)(1-x) - bxy \\
-\dot{y} &= xy - cy - d.
 \label{eq:toBeAn}
+\dot{y} &= xy - cy - d.
 \end{align}
 With $a = 0.4, \; b = 0.3, \text{ and } c \in [0.65 0.75]$. $x$ represents prey and $y$ predators. The $xy$ products of the system govern the interaction of the two species. 
 
@@ -45,8 +45,7 @@ Figure~\ref{fig:simpleSim} shows simulation results produced by a Runge-Kutta ty
 \subsection{Two-dimensional approach}
 Once more the analysis starts with the computation of the fixed point locations. Setting the system equations to zero leads to:
 \begin{align}
-0 &= x(x-a)(1-x) - bxy \\
-\label{eq:topDzero}
+0 &= x(x-a)(1-x) - bxy \label{eq:topDzero} \\
 0 &= xy - cy.
 \end{align}
 Starting from the top equation~\ref{eq:topDzero} first x may be factored out:
@@ -69,7 +68,7 @@ Which will be simplified further once more is known about y. To finish the quest
 \end{equation}
 The equation~\ref{eq:facDzero} is zero when $x_4 = c$. Which is the missing x component. Looking at y, $y_1 = 0$ is quickly read off from ~\ref{eq:facDzero}. Turning back to equation~\ref{eq:topDzero} and solving for $y$ while assuming $x \ne 0$ gives:
 \begin{equation}
-y_2 = \frac{(x - a)(1 - x)}{b}
+y_2 = \frac{(c - a)(1 - c)}{b}
 \end{equation}
 At this point two steady state solutions at $\begin{pmatrix} x_1 & y_1 \end{pmatrix}^T = \begin{pmatrix} 0 & 0 \end{pmatrix}^T$ and $\begin{pmatrix} x_4 & y_2 \end{pmatrix}^T = \begin{pmatrix} c & \frac{(c -a )(1-c)}{b} \end{pmatrix}^T$ are already known. Using $y_1$ again equation \ref{eq:pq} can be simplified further after plugging in and factoring out one obtains:
 \begin{align}
@@ -300,8 +299,17 @@ As $c$ increases from $0.65$ to $0.75$ , most importantly at $0.7$ the reverse H
 
 \begin{figure}
 \input{./plots/matcontBifurs.tex}
-\includegraphics{./plots/hcCont.pdf}
-\caption{Matcont continuation for $\mathbf{x}_2^*$ starting from $c=0.1$. Limit cycle continuation troughout its short lifetime.} 
+\includegraphics[0.5*\linewidth]{./plots/hcCont.pdf}
+\caption{\texttt{matcont} continuation for $\mathbf{x}_2^*$ starting from $c=0.1$. Limit cycle continuation troughout its short lifetime.} 
+\label{fig:matcontdeq0}
 \end{figure}
+
+\begin{figure}
+\input{./plots/matcontd0p01.tex}
+\input{./plots/matcontd-0p01.tex}
+\caption{\texttt{matcont} made bifurcation diagrams. With $d = 0.01$ and $d=-0.01$}
+\label{fig:matcontdne0}
+\end{figure}
+
 
 \end{document}
