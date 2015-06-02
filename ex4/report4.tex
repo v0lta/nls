@@ -286,7 +286,6 @@ Figure~\ref{fig:eigsJx2} shows the evolution of the real and imaginary part of $
 As $c$ increases from $0.65$ to $0.75$ , most importantly at $0.7$ the reverse Hopf-bifurcation occurs. For $c = 0.7$ initial conditions close the the fixed points $\mathbf{x}_2^*$ will keep oscillating almost undamped see figures~\ref{[fig:incC]} and~\ref{fig:NumTop} . The period of the solutions decreases, which can be observed in figure~\ref{fig:incC}. Perhaps not very surprisingly before the bifurcation both species die out as the node at $(0,0)$ is the only fixed point, that can be reached from positive initial conditions. At $c = 0.7$ the two animal races have at least the option of eternal oscillation instead of mutual extinction. Finally after the bifurcation all three initial conditions tried out here converge to the stable spiral at $\mathbf{x}_2^*$. However it is important that $\mathbf{x}_1^*$ at $(0,0)$ remains stable and is indeed approached from other initial conditions. 
 
 
-
 \begin{figure}
 \centering
 \input{./plots/c0.65oscillationsTime.tex}
@@ -297,6 +296,12 @@ As $c$ increases from $0.65$ to $0.75$ , most importantly at $0.7$ the reverse H
 \input{./plots/c0.75oscillationsPlane.tex}
 \caption{System solutions for $c = 0.65, 0.7, 0.75$ in time and phase plane representation.}
 \label{[fig:incC]}
+\end{figure}
+
+\begin{figure}
+\input{./plots/matcontBifurs.tex}
+\includegraphics{./plots/hcCont.pdf}
+\caption{Matcont continuation for $\mathbf{x}_2^*$ starting from $c=0.1$. Limit cycle continuation troughout its short lifetime.} 
 \end{figure}
 
 \end{document}

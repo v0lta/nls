@@ -17,7 +17,7 @@ plot(x3(1),x3(2),'s')
 plot(x4(1),x4(2),'d')
 
 for c = 0:0.1:1.5
-    x2 = [c ((c-1)*(1-c))/b];
+    x2 = [c ((c-a)*(1-c))/b];
     plot(x2(1),x2(2),'p')
 end
 title('fixed point posistion.')
@@ -74,8 +74,8 @@ figure(4)
 title('det')
 hold on;
 grid on;
-plot(c,det1,'-x')
-plot(c,det2,'-p')
+plot(c,det1,'-x') %x
+plot(c,det2,'-p') %star
 plot(c,det3,'-s') %square
 plot(c,det4,'-d') %diamond
 xlabel('c')
@@ -95,7 +95,16 @@ ylabel('det')
 zlabel('c')
 grid on; hold off;
 
-
+figure(6)
+hold on
+title('spiral condition')
+plot(c,tau1.^2-4*det1,'-x')
+plot(c,tau2.^2-4*det2,'-p')
+plot(c,tau3.^2-4*det3,'-s')
+plot(c,tau4.^2-4*det4,'-d')  
+xlabel('c')
+ylabel('tau^2-4*det')
+grid on; hold off;
 
 
 
