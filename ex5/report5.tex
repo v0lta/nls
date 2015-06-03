@@ -1,0 +1,50 @@
+
+\input{./src/preamble.tex}
+
+\begin{document}
+
+\title{Study of a predator prey model.}
+\author{Moritz Wolter}
+
+\maketitle
+
+\section{Lyapunov exponents of the Lorenz equations}
+The Lorenz-equations are considered chaotic as they exhibit sensitive dependence on initial conditions. An important way to put this dependence into numbers are Lyapunov exponents. If the evolution of the distance between the solutions starting from two initial conditions $\delta(t)$ is compared. The biggest Lyapunov exponents tells us how this distance will change with time\footnote{Strogatz p.328}:
+\begin{equation}
+\| \delta(t) \| \sim \| \delta_0 \| e^{\lambda t}
+\end{equation} 
+\begin{figure}
+\centering
+\input{./plots/lorenz4.tex}
+\caption{Numerical solution of the Lorenz equations for the four initial conditions $(0.2, 0, 0), (0.2, 0, 0.1), (0.2, 0, 0.2), (0.2, 0, 0.3)$ for $t \in [0, 20]$. Solution end points are marked with circles.}
+\label{fig:lorenz4}
+\end{figure}
+This means that a system with at least one positive Lyapunov exponent will become unpredictable after a certain time horizon is reached. This behavior can be observed in figure~\ref{fig:lorenz4}. The one of the four solutions spread out on the attractor even tough their initial conditions where only $0.1$ apart.
+Conceptually the exponents are computed following the formula \footnote{Strogatz p.374}:
+\begin{equation}
+\lambda = \lim_{n \rightarrow \infty}\{\frac{1}{n} \sum_{i=0}^{n-1}\ln(f'(x_i)\}
+\end{equation}
+However instead of the first derivative the Jacobian matrix is computed. The rows, which contain the spacial derivatives at a given point $x_i$ of a given equation. In order to produce a scalar the square root of the dot product is computed for the row under consideration and then fed into the logarithm. Generally one obtains as many exponents as equations. In order to prevent nasty numerical surprises the rows of the Jacobian are kept orthogonal by the Gram-Schmidt algorithm.
+
+To undertake numerical computations it is necessary to choose a value \texttt{kkmax} $< \infty$ as a replacement for $n$. Furthermore a step size \texttt{st} is necessary. The time covered by the simulation would therefore be \texttt{st * kkmax}. When starting the computation three input-parameters are at the users disposal. At first a suitable initial condition has to be chosen. In order to avoid any traveling time where the solutions move onto the attractor (see figure~\ref{fig:lorenz4}) the initial condition \texttt{[0 1 20]} has been chosen, which is on or very close to the attractor. Next step size and the number of iterations have to be picked. As an initial gees \texttt{st = 0.01; kkmax = 1000} are proposed. The results are shown in figure\ref{fig:comp1}. If only the number of iterations is increased it remains debatable if the solution quality actually increases. See figure~\ref{fig:comp2}. However if the step size is reduced by the same order of magnitude with which the number of iterations was increased, the solution precision does indeed improve. Check figure~\ref{fig:comp3}.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{./plots/okLiapunov.tex}
+\includegraphics[scale=0.5]{./plots/okLorenz.tex}
+\caption{\texttt{x = [0 1 20]'; st = 0.01; kkmax = 1000; lyap = 0.8512   -0.2526  -14.4998}}
+\label{fig:comp1}
+\includegraphics[scale=0.5]{./plots/goodLiapunov.pdf}
+\includegraphics[scale=0.5]{./plots/goodLorenz.pdf}
+\caption{\texttt{x = [0 1 20]';st = 0.01;kkmax = 10000;  lyap = 1.0749   -0.0312  -14.9990}}
+\label{fig:comp2}
+\includegraphics[scale=0.5]{./plots/bestLiapunov.pdf}
+\includegraphics[scale=0.5]{./plots/bestLorenz.pdf}
+\caption{\texttt{x = [0 1 20]'; st = 0.001; kkmax = 100000; lyap = 0.9035   -0.0150  -14.5896}}
+\label{fig:comp3}
+\end{figure}
+
+\section{The duffing Oscillator}
+
+
+\end{document}

@@ -1,0 +1,6 @@
+
+%
+x = [1 0 0.1]';
+st = 0.01;
+kkmax = 3;
+lyap = lyapunov(@rhs_lorenz,st,kkmax,x)
