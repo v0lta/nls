@@ -1,0 +1,38 @@
+function [ dydx ] = chua( t,y )
+%A function that returns the change of variables for chua's circuit for use
+%with ode1.
+
+alpha = 1;
+beta = 1;
+
+if (x > 1) 
+    h = b*y(1,1)  + a - b;
+elseif (y(1,1) < (-1))
+    h = b*y(1,1) - a + b;
+else
+    h = a*y(1,1);
+end
+
+
+%   Integrate phase point (y(1,1)=x, y(2,1)=y, y(3,1)=z)
+dydx(1,1)= alpha * ( y(2,1) - h);
+dydx(2,1)= y(1,1) - y + z;
+dydx(3,1)= - beta * y;
+
+
+
+
+%   Integrate tangent vectors with Jacobian (first component myin, second
+%   component myin+1, third component myin+2, for myin =4,7,10);
+%   for Lorenz the Jacobian is   |-sigma   sigma    0|
+%                                | (r-z)    -1     -x|
+%                                |   y       x     -b|
+myin=n+1:n:n*(n+1);
+dydx(myin,1)=-sigma*y(myin)+sigma*y(myin+1,1);
+dydx(myin+1,1)=(r-y(3,1))*y(myin,1)-y(myin+1,1)-y(1,1)*y(myin+2,1);
+dydx(myin+2,1)=y(2,1)*y(myin,1)+y(1,1)*y(myin+1,1)-b*y(myin+2,1);
+
+
+
+end
+

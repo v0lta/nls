@@ -51,7 +51,6 @@ To undertake numerical computations it is necessary to choose a value \texttt{kk
 \end{equation}
 In Ueda's 1980 paper on "Steady Motions exhibited by Duffing's Equation" \footnote{\url{http://www.iaea.org/inis/collection/NCLCollectionStore/_Public/12/574/12574072.pdf}}, the dynamics of equation~\ref{eq:Duff} is analyzed for numerous different $k$ and $B$ value combinations. In this report the combination \texttt{k = 1; B = 5}  which should lead to stable results, will be compared to \texttt{B = 7.5;k = 0.05}, which is supposed to produce chaotic results. Results are shown in figures~\ref{fig:DuffingPlane} and \ref{fig:DuffingTime}. As predicted in the paper chaotic behaviour does occur for the second parameter set. The initial conditions which are only $0.1$ apart end up on completely different parts of the oscillator. A result that differs fundamentally from the behavior induced by the first parameter set. In this case the solutions are attracted to one stable path in the oscillator.   
 
-
 \begin{figure}
 \input{./plots/duffingstable.tex}
 \input{./plots/duffingchaos1.tex}
@@ -63,5 +62,13 @@ In Ueda's 1980 paper on "Steady Motions exhibited by Duffing's Equation" \footno
 \label{fig:DuffingTime}
 \end{figure}
 
-
+\section{Chua's circuit}
+\begin{figure}
+\includegraphics{./plots/liapunovChua.pdf}
+\caption{Evolution of the Liapunov exponents during first iterations of the Jacobian based algorithm.}
+\input{./plots/chua1.tex}
+\caption{Simulation of Chua's circuit starting from $\mathbf{x}_{1,0} = ( 0 , 0 , 0.1 )$, $\mathbf{x}_{2,0} = \mathbf{x}_{1,0} \cdot 1.1$, $\mathbf{x}_{3,0} = \mathbf{x}_{1,0} \cdot 1.2$ and $\mathbf{x}_{4,0} = \mathbf{x}_{1,0} \cdot 1.3$,  \texttt{lyap =  0.3123    0.1702   -2.7140}.}
+\label{fig:chua}
+\end{figure}
+One last example of chaos is Chua's circuit. As the name hints it stems from circuit theory. Once more four sightly perturbed initial conditions are simulated, results are shown in figure~\ref{fig:chua}. The Lyapunov exponents are found to be \texttt{lyap =  0.3123    0.1702   -2.7140}, with two exponents greater then zero indicating chaotic behavior. A prediction that is confirmed by the observation of perturbation sensitivity in the computed orbits.
 \end{document}
