@@ -3,7 +3,7 @@
 
 \begin{document}
 
-\title{Study of a predator prey model.}
+\title{Chaos}
 \author{Moritz Wolter}
 
 \maketitle
@@ -45,6 +45,23 @@ To undertake numerical computations it is necessary to choose a value \texttt{kk
 \end{figure}
 
 \section{The duffing Oscillator}
+\begin{equation}
+\ddot{x} + k\dot{x} + x^3 = B \cos(t).
+\label{eq:Duff}
+\end{equation}
+In Ueda's 1980 paper on "Steady Motions exhibited by Duffing's Equation" \footnote{\url{http://www.iaea.org/inis/collection/NCLCollectionStore/_Public/12/574/12574072.pdf}}, the dynamics of equation~\ref{eq:Duff} is analyzed for numerous different $k$ and $B$ value combinations. In this report the combination \texttt{k = 1; B = 5}  which should lead to stable results, will be compared to \texttt{B = 7.5;k = 0.05}, which is supposed to produce chaotic results. Results are shown in figures~\ref{fig:DuffingPlane} and \ref{fig:DuffingTime}. As predicted in the paper chaotic behaviour does occur for the second parameter set. The initial conditions which are only $0.1$ apart end up on completely different parts of the oscillator. A result that differs fundamentally from the behavior induced by the first parameter set. In this case the solutions are attracted to one stable path in the oscillator.   
+
+
+\begin{figure}
+\input{./plots/duffingstable.tex}
+\input{./plots/duffingchaos1.tex}
+\caption{Stable Duffing-oscillator with \texttt{k = 1; B = 5}. Slightly perturbed initial conditions end up on the same path eventually (left). Chaotic Duffing-oscillator with \texttt{B = 7.5;k = 0.05}. Slightly perturbed initial conditions end up on different parts of the oscillator.}
+\label{fig:DuffingPlane}
+\input{./plots/duffingstableTime.tex}
+\input{./plots/duffingchaos1Time.tex}
+\caption{Time plot of the duffing oscillator's first and second derivative. For \texttt{k = 1; B = 5}(left) and \texttt{B = 7.5;k = 0.05}(right). }
+\label{fig:DuffingTime}
+\end{figure}
 
 
 \end{document}
