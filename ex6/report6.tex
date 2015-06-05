@@ -1,5 +1,5 @@
-\documentclass{article}
-\usepackage{graphicx}
+
+\input{./src/preamble.tex}
 
 \begin{document}
 
@@ -8,9 +8,19 @@
 
 \maketitle
 
+\section{The Brusselator}
+\begin{align}
+u_t &= D_u u_{xx} + A - (B + 1)u + u^2 v, \\
+v_t &= D_v v_{xx} + Bu - u^2 .
+\end{align}
+The above equations describe molecule concentrations during a coupled reaction. They are known to exhibit patterns.  
 
-\section{Question 1:}
-
-
+\section{Stability of the steady state}
+At the steady state $u_t = v_t = u_{xx} = v_{xx} = 0$. Thus following equations remain:
+\begin{align}
+0 = A - (B + 1)u + u^2v, \\
+0 = u(B - uv). \\
+\end{align}
+From which $u_0 = A$ and $v_0 = B/A$ is deduced. 
 
 \end{document}
