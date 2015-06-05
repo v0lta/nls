@@ -18,9 +18,56 @@ The above equations describe molecule concentrations during a coupled reaction. 
 \section{Stability of the steady state}
 At the steady state $u_t = v_t = u_{xx} = v_{xx} = 0$. Thus following equations remain:
 \begin{align}
-0 = A - (B + 1)u + u^2v, \\
-0 = u(B - uv). \\
+0 &= A - (B + 1)u + u^2v, \\
+0 &= u(B - uv). \\
 \end{align}
-From which $u_0 = A$ and $v_0 = B/A$ is deduced. 
+From which $u_0 = A$ and $v_0 = B/A$ is deduced. Considering the linearized system evaluated at $u_0$,$v_0$ in Matrix form:
+\begin{align}
+\begin{pmatrix}
+u_t \\ v_t
+\end{pmatrix} =
+\begin{pmatrix}
+D_u u_{xx} \\ D_v v_{xx}
+\end{pmatrix} +
+\underbrace{\begin{pmatrix}
+B-1 & A^2 \\
+-B & -A^2
+\end{pmatrix}}_\text{Jacobian evaluated at $(u_0,v_0)$}
+\begin{pmatrix}
+u \\ v
+\end{pmatrix}. 
+\label{eq:lin} 
+\end{align}
+Using $\begin{pmatrix} u & v \end{pmatrix}^T = \begin{pmatrix} u_1 & v_1 \end{pmatrix}^T \cdot \exp(\lambda t + ikx)$ leads to:
+\begin{align}
+u_{xx} &= (ik)^2 u_1 \exp(s t + ikx) = -k^2u \\
+u_{yy} &= (ik)^2 v_1 \exp(s t + ikx) = -k^2v
+\end{align}
+When substituting this into the linearized equation~\ref{eq:lin}. The expression:
+\begin{equation}
+\begin{pmatrix}
+u_t \\ v_t
+\end{pmatrix} =
+\begin{pmatrix}
+(B - 1)-k^2 D_u & A^2 \\
+-B & -A^2-k^2 D_v
+\end{pmatrix}
+\begin{pmatrix}
+u \\ v
+\end{pmatrix}.
+\end{equation}
+The new matrix above has trace $\tau$ and determinant $\triangle$:
+\begin{align}
+\tau &= B - 1 - A^2 - k^2(D_u + D_v) \\
+\triangle &= [(B-1) - k^2 D_u ][-A^2 - k^2D_v] + BA^2 \\
+		  &= A^2 - BA^2 + A^2k^2D_u + k^2D_vB - k^2 D_v + k^2 D_u D_v + BA^2 \\
+		  &= A^2 + k^2(A^2 D_u + (1 - B)D_v ) + k^4 D_u D_v.
+\end{align}
+Now linear algebra has a nice relationship for the eigenvalues:
+\begin{equation}
+s_\pm = \frac{1}{2}(\tau \pm \sqrt{\tau^2 - 4\triangle}).
+\end{equation}
+Turing instability can occur when the ordinary differential and the partial differential part of the system work against each other. 
+
 
 \end{document}
