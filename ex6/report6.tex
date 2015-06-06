@@ -38,6 +38,7 @@ u \\ v
 \end{pmatrix}. 
 \label{eq:lin} 
 \end{align}
+From the Jacobian above trace and determinant of the ordinariy differential subsystem can be read off, $\tau_{ode} = B - 1 - A^2$ and $\triangle_{ode} = A^2$.
 Using $\begin{pmatrix} u & v \end{pmatrix}^T = \begin{pmatrix} u_1 & v_1 \end{pmatrix}^T \cdot \exp(\lambda t + ikx)$ leads to:
 \begin{align}
 u_{xx} &= (ik)^2 u_1 \exp(s t + ikx) = -k^2u \\
@@ -65,9 +66,52 @@ The new matrix above has trace $\tau$ and determinant $\triangle$:
 \end{align}
 Now linear algebra has a nice relationship for the eigenvalues:
 \begin{equation}
-s_\pm = \frac{1}{2}(\tau \pm \sqrt{\tau^2 - 4\triangle}).
+\lambda_\pm = \frac{1}{2}(\tau \pm \sqrt{\tau^2 - 4\triangle}).
 \end{equation}
-Turing instability can occur when the ordinary differential and the partial differential part of the system work against each other. 
+\section{Turing instability}
+Turing instability can occur when the ordinary differential and the partial differential part of the system work against each other. Or in other terms it instability is requires:
+\begin{align}
+\tau_{ode} < 0 \wedge \triangle_{ode} > 0 \\
+(\tau_{pde} > 0 \wedge \triangle_{pde} > 0) \vee \triangle_{pde} < 0.
+\end{align}
+Where the subscripted $\tau_{ode}$ and $\triangle_{ode}$ denote trace and determinant of the ordinary differential system and $\tau_{pde}$ and $\triangle_{pde}$ trace and determinant of the partial differential part. When real eigenvalues of the partial differential subsystem change sign, the onset of Turing instability is observed. That is because the determinant which is the product of the two eigenvalues will change it's sign if any of the eigenvalues do. If both pde system eigenvalues change sign with respect to the ode system, $\tau_{pde}$ changes it's sign instead of $\triangle_{pde}$.
 
+Using the conditions outlined above a critical value for $B$ may be computed, looking at the inequalities for the ordinary part:
+\begin{align}
+\tau_{ode} &= B - 1 - A^2 < 0 \Leftrightarrow B < 1 + A^2 \\
+\triangle_{ode} &= A^2 > 0.
+\end{align}
+The two inequalities have to be respected, when creating an turing unstable Brusselator. Starting from $\triangle_{pde} = 0$. A critical value for an increasing B is sought after in the upcoming part:
+\begin{align}
+0 &= A^2 + k^2 (A^2 D_u + (1 - B)D_v) + k^4D_u D_v \\
+B &= \frac{A^2 D_u}{D_v} + 1 + \frac{A^2}{k^2 D_v} + k^2 D_u. 
+\label{eq:B}
+\end{align}
+However to evaluate the expression above a value for the variable $k$ is required. As the goal of this train of thought is to find the smallest $B$ for which instability occurs, $k$ hast to be chosen such that it minimizes $B$. This can be done by solving $\frac{dB}{dk} = 0$ and later checking that $\frac{d^2 B}{dk^2} > 0$ to verify a minimum. The first derivative is given by:
+\begin{align}
+0 &= -\frac{2 A^2}{k^3 D_v} + 2kD_u \\
+\Leftrightarrow 2A^2 &= 2k^4 D_u D_v \\
+\Leftrightarrow k^4 &= \frac{A^2}{D_u D_v} \\
+\Leftrightarrow k_T &= (\frac{A^2}{D_u D_v})^\frac{1}{4}.
+\end{align}
+The second derivative is described by:
+\begin{equation}
+\frac{d^2B}{dk^2} =\frac{6 A^2}{k^4 D_v} + 2 D_u
+\label{eq:secDiv}
+\end{equation}
+Substituting $k_T$ into \ref{eq:secDiv} yields:
+\begin{align}
+\frac{d^2B}{dk^2}(k_T) = \frac{6A^2}{\frac{A^2}{D_u D_v} D_v} + 2D_u \\
+= 8 D_u > 0 
+\end{align}
+Which proves that $k_T$ indeed is at a minimum of $B(k)$. Thus $k_T$ is now substituted into equation~\ref{eq:B} to find $B_T$:
+\begin{align}
+B &= 1 + \frac{A^2}{\frac{A^2}{D_u D_v}^\frac{1}{2} D_v} + \frac{A^2D_u}{D_v} + \frac{A^2}{D_u D_v}^\frac{1}{2} D_u \\
+ &= 1 + \frac{A \sqrt{D_u D_v}}{D_v} + \frac{A^2 D_u}{D_v} + \frac{A D_u}{\sqrt{D_u D_v}} \\
+ &= 1 + \frac{2AD_u D_v}{D_v \sqrt{D_u D_v}} + \frac{A^2 D_u \sqrt{D_u D_v}}{Dv \sqrt{D_u D_v}} \\
+ &= 1 + 2A \sqrt{\frac{D_u^2}{D_u D_v}} + A^2\frac{D_u}{D_v} \\
+\Leftrightarrow B_T &= (1 + A\eta)^2.
+\end{align}
+With $\eta = \frac{D_u}{D_v}$ the critical value for $B$ has been found. 
 
 \end{document}
