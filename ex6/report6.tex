@@ -112,6 +112,20 @@ B &= 1 + \frac{A^2}{\frac{A^2}{D_u D_v}^\frac{1}{2} D_v} + \frac{A^2D_u}{D_v} + 
  &= 1 + 2A \sqrt{\frac{D_u^2}{D_u D_v}} + A^2\frac{D_u}{D_v} \\
 \Leftrightarrow B_T &= (1 + A\eta)^2.
 \end{align}
-With $\eta = \frac{D_u}{D_v}$ the critical value for $B$ has been found. 
+With $\eta = \sqrt{\frac{D_u}{D_v}}$ the critical value for $B_T$ has been found. 
+
+\section{Alan vs Eberhard}
+In this section the possibility of a Hopf-bifurcation occuring before Turing instability will be explored. Neglecting the diffusion terms trace and determinant are given by:
+\begin{align}
+\tau_{ode} = B - 1 - A^2 \\
+\triangle_{ode} = A^2
+\end{align}
+A Hopf bifurcation happens when imaginary eigenvalues $\lambda_\pm = \frac{1}{2}(\tau \pm \sqrt{\tau^2 - 4\triangle})$ cross the real axis. Which happens when $\tau = 0$, if the determinant if positive. Thus at $B_H = (1 + A^2)$ the system exhibits a Hopf bifurcation as $\triangle_{ode}$ is positive. However Turing instability will occur first if:
+\begin{align}
+B_t < B_h \Leftrightarrow (1 + A\eta)^2 < (1 + A^2) \Leftrightarrow 1 + A\eta < \sqrt{1 + A^2} \Leftrightarrow \eta < \frac{\sqrt{1 + A^2} - 1}{A}.
+\end{align}
+
+
+
 
 \end{document}
