@@ -124,7 +124,29 @@ A Hopf bifurcation happens when imaginary eigenvalues $\lambda_\pm = \frac{1}{2}
 \begin{align}
 B_t < B_h \Leftrightarrow (1 + A\eta)^2 < (1 + A^2) \Leftrightarrow 1 + A\eta < \sqrt{1 + A^2} \Leftrightarrow \eta < \frac{\sqrt{1 + A^2} - 1}{A}.
 \end{align}
+\section{Numerical simulations}
+If $B$ is chosen such that $B > B_T = 6.7132$ if $A = 4.5,D_u = 1 \text{ and } D_v = 8$, various patterns emerge as shown in figure~\ref{fig:Brussl1} . A simulation with \texttt{200} instead of \texttt{100} grid points for the same input parameters is shown in figure~\ref{fig:Brussl3}. If $B$ is increased further it is observed that the concentration of $u$ drops on average, which manifests in expanding blue dots, which show low concentration. At one point the dots merge and form blue lines, which can be seen in figure~\ref{fig:Brussl2}.
 
+\begin{figure}
+\centering
+\includegraphics[scale = 0.9]{./plots/cua4p5b7.pdf}
+%\includegraphics[scale = 0.5]{./plots/cva4p5b7.pdf}
+\caption{Brusselator simulation output for $a=4.5,b=7,D_u=1,D_v=8$.}
+\label{fig:Brussl1}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale = 0.9]{./plots/cua4p5b7g200.pdf}
+\caption{Brusselator simulation output for $a=4.5,b=7,D_u=1,D_v=8$. With twice as many grid points.}
+\label{fig:Brussl3}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale = 0.9]{./plots/cua4p5b9.pdf}
+%\includegraphics[scale = 0.5]{./plots/cva4p5b9.pdf}
+\caption{Brusselator simulation output for $a=4.5,b=9,D_u=1,D_v=8$.}
+\label{fig:Brussl2}
+\end{figure}
 
 
 
