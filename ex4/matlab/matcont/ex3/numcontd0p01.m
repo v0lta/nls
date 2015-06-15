@@ -49,10 +49,10 @@ global cds
   opt=contset(opt,'MaxNewtonIters',4);
 
   c = 0.7;
-  d = -0.01;
+  d = 0.01;
   p0 = [c; d];
   ap = 1;      % Note: index of continuation parameter = 1
-  plotVec = [2 3];
+  plotVec = [1 2];
 % ---------------------------------------------------------
 % figure(1);clf;hold on  
 % % Compute first solution branch
@@ -71,25 +71,3 @@ global cds
      [x1,v1,s1,h1,f1] = cont(@equilibrium,x0,c0,opt);
      cpl(x1,v1,s1,plotVec); 
      
-     
-% ntst = 5;  % number of mesh-intervals
-%              % this is an initial guess !!!!!!
-%              % increase this argument !
-% ncol = 4;  % number of collocation points     
-%      
-% xh = x1(1:2,s1(1).index);
-% ch = [x1(3,s1(1).index); d];
-% i  = s1(2).index;     
-% 
-% [x0,c0]=init_H_LC(@myfuncont,xh,ch,1,1e-4,ntst,ncol);
-% [x2,v2,s2,h2,f2]=cont(@limitcycle,x0,c0,opt);
-% 
-% figure(2);clf;
-% e = size(x2,1)-1;
-% plotcycle(x2([1:end-2 end],1:end),v2,s2,[e 1 2])
-% view(3)
-% xlabel('c')
-% ylabel('x')
-% zlabel('y')
-% grid on 
-%     

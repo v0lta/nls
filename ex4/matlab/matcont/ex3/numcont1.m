@@ -1,4 +1,4 @@
-addpath(genpath('../../../matlab/cl_matcont2.5.1/'))
+
 % Nonlinear Systems - 2013
 % Example Script - Imperfect bifurcations - Numerical Continuation
 %   Exercise: 2.1

@@ -38,8 +38,8 @@ time = cputime;
 
 c = 0.1;
 %d = 0;
-%d = +0.01;
-d = -0.01;
+d = +0.01;
+%d = -0.01;
 plot = [2 3];
 
 c0  = [c; d];  % initial parameter value
@@ -56,17 +56,15 @@ end
 [x1b,v1b,s1b,h1b,f1b] = cont(@equilibrium,x0,v0,opt);
 
 %x3 [1; 0]
-if (d == 0) 
-    opt=contset(opt,'MaxNumPoints',25);
-else
-    opt=contset(opt,'MaxNumPoints',50);
-end
+
+opt=contset(opt,'MaxNumPoints',30);
 [x0,v0]          = init_EP_EP(@funPred,[1;0],c0,1);
 [x3,v3,s3,h3,f3] = cont(@equilibrium,x0,v0,opt);
-[x0,v0]          = init_EP_EP(@funPred,[1.0;0],[-1; d],1);
-opt=contset(opt,'Backward',0);
+[x0,v0]          = init_EP_EP(@funPred,[1.0;0],[1.25; d],1);
+opt=contset(opt,'Backward',1);
 [x3b,v3b,s3b,h3b,f3b] = cont(@equilibrium,x0,v0,opt);
 opt=contset(opt,'Backward',0);
+[x3c,v3c,s3c,h3c,f3c] = cont(@equilibrium,x0,v0,opt);
 %x2 
 %from bottom.
 if (d == 0) 
@@ -100,10 +98,9 @@ end
 hold on;
 %cpl(x1,v1,s1,plot);
 %cpl(x3,v3,s3,plot);
-if (d ~= 0)
-    cpl(x3b,v3b,s3b,plot)
-    %cpl(x1b,v1b,s1b,plot)
-end
+cpl(x3b,v3b,s3b,plot)
+cpl(x3c,v3c,s3c,plot)
+%cpl(x1b,v1b,s1b,plot)
 title(['d = ' num2str(d)])
 hold off;
 
